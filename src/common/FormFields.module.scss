@@ -1,0 +1,54 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+
+.fieldContainer {
+    margin: 0 5px 5px 0;
+    .titleContainer {
+        display: flex;
+        font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+            "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgb(50, 49, 48);
+        box-sizing: border-box;
+        box-shadow: none;
+        margin: 0px;
+        display: block;
+        padding: 5px 0px;
+        overflow-wrap: break-word;
+        position: relative;
+        height: 30px;
+        & .fieldIcon i {
+            display: inline-block !important;
+        }
+        .fieldIcon {
+            align-self: center;
+            font-size: 16px;
+            color: "[theme:neutralSecondary, default: #605e5c]";
+            margin-right: 8px;
+            position: absolute;
+            display: none;
+        }
+        .fieldIcon & .label {
+            left: 10px;
+        }
+        .isRequired {
+            color: rgb(164, 38, 44);
+            padding-left: 4px;
+        }
+        .label {
+            position: absolute;
+        }
+        .tipTool {
+            position: absolute;
+            top: 0;
+            right: -8px;
+            padding: 0;
+            color: "[theme:neutralSecondary, default: #605e5c]";
+        }
+    }
+    .callout {
+        width: 320px;
+        padding: "20px 24px", \;;
+    }
+}
