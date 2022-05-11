@@ -5,7 +5,7 @@ import { FieldActions } from '../../common/FieldActions';
 import { FieldLabel } from '../../common/FieldLabel';
 import { keyBy } from 'lodash';
 
-export interface ITextBoxFieldProps {
+export interface ISPTextBoxFieldProps {
     Label: string;
     Data?: any;
     MaxLength?: number;
@@ -20,11 +20,11 @@ export interface ITextBoxFieldProps {
     onChange?: any;
 }
 
-export interface ITextBoxFieldState {
+export interface ISPTextBoxFieldState {
     FieldsValue: string;
 }
 
-export class SPTextBoxField extends React.Component<ITextBoxFieldProps, ITextBoxFieldState> {
+export class SPTextBoxField extends React.Component<ISPTextBoxFieldProps, ISPTextBoxFieldState> {
     constructor(props) {
         super(props);
         this.handleDataFormat = this.handleDataFormat.bind(this);
