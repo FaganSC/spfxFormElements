@@ -37,12 +37,14 @@ export class FieldLabel extends React.Component<IFieldLabelProps, IFieldLabelSta
         if (props.UseIcon) {
             containerStyles.push(styles.fieldIcon);
         }
+        if (props.Required) {
+            containerStyles.push(styles.isRequired);
+        }
         let className : string = containerStyles.join(" ");
         return (
             <div className={className}>
                 <Icon className={styles.fieldIcon} iconName={"TextField"} />
                 <div className={styles.label}>{props.Label}</div>
-                {props.Required ? <span className={styles.isRequired}>*</span> : undefined}
                 {props.TipTool ? <>
                     <IconButton className={styles.tipTool} iconProps={{ iconName: 'Info' }} onClick={() => this.toggleIsCalloutVisible()} />
                     {isCalloutVisible ? (
