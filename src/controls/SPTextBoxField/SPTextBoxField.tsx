@@ -74,6 +74,7 @@ export class SPTextBoxField extends React.Component<ITextBoxFieldProps, ITextBox
     public render(): JSX.Element {
         const { props } = this;
         const { FieldsValue } = this.state;
+        const iconProps = props.ReadOnly ? { iconName: 'Lock' } : null;
         let _fieldActions: FieldActions = new FieldActions(props);
         return (
             <div className={styles.fieldContainer}>
@@ -88,6 +89,7 @@ export class SPTextBoxField extends React.Component<ITextBoxFieldProps, ITextBox
                     disabled={_fieldActions.isDisabled()}
                     className={_fieldActions.getClassNames()}
                     value={FieldsValue}
+                    iconProps={iconProps}
                     errorMessage={_fieldActions.getErrorMessage()}
                     onKeyPress={(event) => this.handleOnKeyPress(event)}
                     onBlur={() => this.handleOnBlur()}
