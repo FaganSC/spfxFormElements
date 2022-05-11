@@ -18,8 +18,13 @@
         overflow-wrap: break-word;
         position: relative;
         height: 30px;
-        & .fieldIcon i {
+        &.fieldIcon > .fieldIcon {
             display: inline-block !important;
+            top: 7px;
+            position: absolute;
+        }
+        &.fieldIcon > .label {
+            left: 20px;
         }
         .fieldIcon {
             align-self: center;
