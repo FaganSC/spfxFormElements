@@ -5,6 +5,7 @@ import { Text, ITextProps } from '@fluentui/react/lib/Text';
 import { IconButton } from '@fluentui/react/lib/Button';
 import { Callout, DirectionalHint } from '@fluentui/react/lib/Callout';
 import { concat } from 'lodash';
+import { TipToolCallout } from './TipToolCallout';
 
 export interface IFieldLabelProps {
     UseIcon: boolean;
@@ -43,34 +44,12 @@ export class FieldLabel extends React.Component<IFieldLabelProps, IFieldLabelSta
         if (props.Required) {
             containerStyles.push(styles.isRequired);
         }
-        let className : string = containerStyles.join(" ");
+        let className: string = containerStyles.join(" ");
         return (
             <div className={className}>
                 <Icon className={styles.fieldIcon} iconName={IconName} />
                 <div className={styles.label}>{props.Label}</div>
-                {props.TipTool ? <>
-                    <IconButton className={styles.tipTool} iconProps={{ iconName: 'Info' }} onClick={() => this.toggleIsCalloutVisible()} />
-                    {isCalloutVisible ? (
-                        <Callout
-                            //ariaLabelledBy={labelId}
-                            //ariaDescribedBy={descriptionId}
-                            role="dialog"
-                            className={styles.callout}
-                            //gapSpace={gapSpace}
-                            //target={`#${buttonId}`}
-                            isBeakVisible={true}
-                            beakWidth={10}
-                            onDismiss={this.toggleIsCalloutVisible}
-                            directionalHint={DirectionalHint.bottomRightEdge}
-                            setInitialFocus
-                        >
-                            <Text block variant="medium">
-                                {props.TipTool}
-                            </Text>
-
-                        </Callout>
-                    ) : null}
-                </> : undefined}
+                {props.TipTool && <TipToolCallout message={props.TipTool} />}
             </div>
         );
     }

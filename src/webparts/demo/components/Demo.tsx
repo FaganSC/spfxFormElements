@@ -54,7 +54,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><Toggle checked={testDisabled} label={"Disabled?"} onText="Yes" offText="No" onChanged={(checked) => this.setState({ testDisabled: checked })} /></td>
             <td><Toggle checked={testReadOnly} label={"ReadOnly?"} onText="Yes" offText="No" onChanged={(checked) => this.setState({ testReadOnly: checked })} /></td>
             <td><Toggle checked={testIcon} label={"Field Icon?"} onText="Yes" offText="No" onChanged={(checked) => this.setState({ testIcon: checked })} /></td>
-            <td><Toggle checked={testTipTool} label={"TipTool?"} onText="Yes" offText="No" onChanged={(checked) => { checked ? this.setState({ testTipTool: checked, testTipToolMsg: "Use Tip Tool to descript Field" }) : this.setState({ testTipTool: checked, testTipToolMsg: null }); }} /></td>
+            <td><Toggle checked={testTipTool} label={"TipTool?"} onText="Yes" offText="No" onChanged={(checked) => { checked ? this.setState({ testTipTool: checked, testTipToolMsg: "Use Tip Tool to descript field" }) : this.setState({ testTipTool: checked, testTipToolMsg: null }); }} /></td>
           </tr>
         </table><table width={"100%"}>
           <tr>
