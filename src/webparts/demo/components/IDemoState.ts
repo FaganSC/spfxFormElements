@@ -3,6 +3,7 @@ export interface IDemoState {
     testDisabled: boolean;
     testReadOnly: boolean;
     testIcon: boolean;
+    testDefaultData: boolean;
     testTipTool: boolean;
     testTipToolMsg?: string;
     

@@ -3,7 +3,8 @@ import styles from './Demo.module.scss';
 import { IDemoProps } from './IDemoProps';
 import { IDemoState } from './IDemoState';
 import { Toggle } from '@fluentui/react/lib/Toggle';
-import { SPTextBoxField } from '../../../controls/SPTextBoxField';
+import { SPTextBoxField } from '../../../SPTextBoxField';
+import { SPCurrencyField } from '../../../controls/SPCurrencyField/SPCurrencyField';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
@@ -15,10 +16,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
       testReadOnly: false,
       testIcon: false,
       testTipTool: false,
-
-      testData: {
-        TextBox: "Plain Text Data",
-      }
+      testDefaultData: false,
+      testData: {}
     };
   }
 
@@ -27,12 +26,30 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
     this.setState({ testData: data });
   }
 
+  private setData(checked: boolean) {
+    if (checked) {
+      this.setState({
+        testDefaultData: checked,
+        testData: {
+          TextBox: "Plain Text Box Data",
+          USDCurrency: "100000.00",
+        }
+      });
+    } else {
+      this.setState({
+        testDefaultData: checked,
+        testData: {}
+      });
+    }
+  }
+
   public render(): React.ReactElement<IDemoProps> {
-    const { testData, testRequired, testDisabled, testReadOnly, testIcon, testTipTool, testTipToolMsg } = this.state;
+    const { testData, testRequired, testDisabled, testReadOnly, testIcon, testDefaultData, testTipTool, testTipToolMsg } = this.state;
     return (
       <div className={styles.demo}>
         <table width={"100%"}>
           <tr>
+            <td><Toggle checked={testDefaultData} label={"Default Data?"} onText="Yes" offText="No" onChange={(event, checked) => this.setData(checked)} /></td>
             <td><Toggle checked={testRequired} label={"Required?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testRequired: checked })} /></td>
             <td><Toggle checked={testDisabled} label={"Disabled?"} onText="Yes" offText="No" onChanged={(checked) => this.setState({ testDisabled: checked })} /></td>
             <td><Toggle checked={testReadOnly} label={"ReadOnly?"} onText="Yes" offText="No" onChanged={(checked) => this.setState({ testReadOnly: checked })} /></td>
@@ -47,6 +64,10 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           <tr>
             <td><SPTextBoxField Data={testData} FieldName="TextBox" Label='Text Box' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{testData.TextBox}</b></td>
+          </tr>
+          <tr>
+            <td><SPCurrencyField Data={testData} FieldName="USDCurrency" Label='USD Currency' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.USDCurrency}</b></td>
           </tr>
         </table>
       </div>

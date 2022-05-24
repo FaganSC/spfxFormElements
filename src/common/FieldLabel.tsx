@@ -11,6 +11,7 @@ export interface IFieldLabelProps {
     Label: string;
     Required: boolean;
     TipTool: string;
+    IconName?: string;
 }
 
 export interface IFieldLabelState {
@@ -33,6 +34,8 @@ export class FieldLabel extends React.Component<IFieldLabelProps, IFieldLabelSta
     public render(): JSX.Element {
         const { props } = this;
         const { isCalloutVisible } = this.state;
+        let IconName: string = props.IconName ? props.IconName : "FieldEmpty";
+
         let containerStyles: string[] = [styles.titleContainer];
         if (props.UseIcon) {
             containerStyles.push(styles.fieldIcon);
@@ -43,7 +46,7 @@ export class FieldLabel extends React.Component<IFieldLabelProps, IFieldLabelSta
         let className : string = containerStyles.join(" ");
         return (
             <div className={className}>
-                <Icon className={styles.fieldIcon} iconName={"TextField"} />
+                <Icon className={styles.fieldIcon} iconName={IconName} />
                 <div className={styles.label}>{props.Label}</div>
                 {props.TipTool ? <>
                     <IconButton className={styles.tipTool} iconProps={{ iconName: 'Info' }} onClick={() => this.toggleIsCalloutVisible()} />

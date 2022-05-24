@@ -3,7 +3,6 @@ import { TextField } from '@fluentui/react';
 import styles from '../../common/FormFields.module.scss';
 import { FieldActions } from '../../common/FieldActions';
 import { FieldLabel } from '../../common/FieldLabel';
-import { keyBy } from 'lodash';
 
 export interface ISPTextBoxFieldProps {
     Label: string;
@@ -28,8 +27,6 @@ export class SPTextBoxField extends React.Component<ISPTextBoxFieldProps, ISPTex
     constructor(props) {
         super(props);
         this.handleDataFormat = this.handleDataFormat.bind(this);
-        this.handleOnKeyPress = this.handleOnKeyPress.bind(this);
-        this.handleOnBlur = this.handleOnBlur.bind(this);
         this.handleOnChange = this.handleOnChange.bind(this);
         this.state = {
             FieldsValue: this.handleDataFormat()
@@ -37,26 +34,17 @@ export class SPTextBoxField extends React.Component<ISPTextBoxFieldProps, ISPTex
     }
 
     private handleDataFormat = (): string => {
-        return this.props.Data !== undefined ? this.props.Data[this.props.FieldName] : null;
+        return this.props.Data !== undefined
+            && this.props.Data !== null
+            && Object.keys(this.props.Data).length > 0
+            && this.props.Data[this.props.FieldName] !== null
+            ? this.props.Data[this.props.FieldName] : null;
     }
 
-    private handleOnKeyPress = (event) => {
+    private handleOnChange = (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, newTextValue?: string) => {
         const { props } = this;
-        const { FieldsValue } = this.state;
-        if (event.key === "Enter" || event.charCode === 13) {
-            var DataObj: any = props.Data;
-            if (FieldsValue.length === 0) {
-                DataObj[props.FieldName] = null;
-            } else {
-                DataObj[props.FieldName] = FieldsValue;
-            }
-            props.onChange(props.FieldName, DataObj);
-        }
-    }
-
-    private handleOnBlur = () => {
-        const { props } = this;
-        const { FieldsValue } = this.state;
+        let FieldsValue = (newTextValue ? newTextValue : null);
+        this.setState({ FieldsValue: FieldsValue });
         var DataObj: any = props.Data;
         if (FieldsValue.length === 0) {
             DataObj[props.FieldName] = null;
@@ -66,9 +54,18 @@ export class SPTextBoxField extends React.Component<ISPTextBoxFieldProps, ISPTex
         props.onChange(props.FieldName, DataObj);
     }
 
-    private handleOnChange = (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, newTextValue?: string) => {
-        this.setState({ FieldsValue: (newTextValue ? newTextValue : null) });
+    public componentDidMount = () => {
+        //alert('Load');
+    }
 
+    public componentWillUnmount = () => {
+        //alert('Unload');
+    }
+
+    public componentDidUpdate = (prevProps) => {
+        if(this.props.Data[this.props.FieldName] !== prevProps.Data[this.props.FieldName]){
+            this.setState({ FieldsValue: this.handleDataFormat() });
+        }
     }
 
     public render(): JSX.Element {
@@ -83,6 +80,7 @@ export class SPTextBoxField extends React.Component<ISPTextBoxFieldProps, ISPTex
                     Required={_fieldActions.isRequired()}
                     UseIcon={_fieldActions.hasIcon()}
                     TipTool={_fieldActions.hasTipTool()}
+                    IconName="TextField"
                 />
                 <TextField
                     readOnly={_fieldActions.isReadOnly()}
@@ -91,8 +89,6 @@ export class SPTextBoxField extends React.Component<ISPTextBoxFieldProps, ISPTex
                     value={FieldsValue}
                     iconProps={iconProps}
                     errorMessage={_fieldActions.getErrorMessage()}
-                    onKeyPress={(event) => this.handleOnKeyPress(event)}
-                    onBlur={() => this.handleOnBlur()}
                     onChange={(event, value) => this.handleOnChange(event, value)} />
             </div>
         );
