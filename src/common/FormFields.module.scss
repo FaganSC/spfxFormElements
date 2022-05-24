@@ -57,3 +57,62 @@
         padding: "20px 24px", \;;
     }
 }
+
+.spfxTextField {
+    font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    position: relative;
+    .wrapper {
+        .fieldGroup {
+            box-shadow: none;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 1px solid rgb(96, 94, 92);
+            border-radius: 2px;
+            background: rgb(255, 255, 255);
+            cursor: text;
+            height: 32px;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            position: relative;
+            .prefix {
+                background: rgb(243, 242, 241);
+                color: rgb(96, 94, 92);
+                display: flex;
+                align-items: center;
+                padding: 0px 10px;
+                line-height: 1px;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            .field {
+                font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont,
+                    Roboto, "Helvetica Neue", sans-serif;
+                -webkit-font-smoothing: antialiased;
+                font-size: 14px;
+                font-weight: 400;
+                box-shadow: none;
+                margin: 0px;
+                padding: 0px 8px;
+                box-sizing: border-box;
+                border-radius: 0px;
+                border: none;
+                background: none transparent;
+                color: rgb(50, 49, 48);
+                width: 100%;
+                min-width: 0px;
+                text-overflow: ellipsis;
+                outline: 0px;
+            }
+        }
+    }
+}
