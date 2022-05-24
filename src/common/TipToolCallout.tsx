@@ -34,7 +34,7 @@ export function TipToolCallout(props: ITipToolCalloutProps) {
       )}
     </>
   );
-};
+}
 
 const styles2 = mergeStyleSets({
   button: {
