@@ -4,7 +4,8 @@ import { IDemoProps } from './IDemoProps';
 import { IDemoState } from './IDemoState';
 import { Toggle } from '@fluentui/react/lib/Toggle';
 import { SPTextBoxField } from '../../../SPTextBoxField';
-import { SPCurrencyField } from '../../../controls/SPCurrencyField/SPCurrencyField';
+import { SPCurrencyField } from '../../../SPCurrencyField';
+import { SPDateField } from '../../../SPDateField';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
@@ -33,6 +34,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
         testData: {
           TextBox: "Plain Text Box Data",
           USDCurrency: "100000.00",
+          DatePicker: "2022-05-01T00:00:00-04:00",
+          DatePicker2: "2022-06-01T00:00:00-04:00"
         }
       });
     } else {
@@ -68,6 +71,14 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           <tr>
             <td><SPCurrencyField Data={testData} FieldName="USDCurrency" Label='USD Currency' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{testData.USDCurrency}</b></td>
+          </tr>
+          <tr>
+            <td><SPDateField Data={testData} FieldName="DatePicker" Label='Date Picker (ddd MMM DD YYYY)' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.DatePicker}</b></td>
+          </tr>
+          <tr>
+            <td><SPDateField Data={testData} FieldName="DatePicker2" Label='Date Picker (YYYY-MM-DD)' DateFormat='YYYY-MM-DD' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.DatePicker2}</b></td>
           </tr>
         </table>
       </div>
