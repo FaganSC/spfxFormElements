@@ -6,6 +6,7 @@ import { Toggle } from '@fluentui/react/lib/Toggle';
 import { SPTextBoxField } from '../../../SPTextBoxField';
 import { SPCurrencyField } from '../../../SPCurrencyField';
 import { SPDateField } from '../../../SPDateField';
+import { SPPhoneNumberField } from '../../../SPPhoneNumberField';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
@@ -35,7 +36,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           TextBox: "Plain Text Box Data",
           USDCurrency: "100000.00",
           DatePicker: "2022-05-01T00:00:00-04:00",
-          DatePicker2: "2022-06-01T00:00:00-04:00"
+          DatePicker2: "2022-06-01T00:00:00-04:00",
+          PhoneNumber: "(555) 123-4567"
         }
       });
     } else {
@@ -79,6 +81,10 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           <tr>
             <td><SPDateField Data={testData} FieldName="DatePicker2" Label='Date Picker (YYYY-MM-DD)' DateFormat='YYYY-MM-DD' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{testData.DatePicker2}</b></td>
+          </tr>
+          <tr>
+            <td><SPPhoneNumberField Data={testData} FieldName="PhoneNumber" Label='Phone Number' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.PhoneNumber}</b></td>
           </tr>
         </table>
       </div>
