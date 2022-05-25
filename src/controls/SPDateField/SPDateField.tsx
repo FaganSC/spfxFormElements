@@ -83,7 +83,7 @@ export class SPDateField extends React.Component<ISPDateFieldProps, ISPDateField
           Required={_fieldActions.isRequired()}
           UseIcon={_fieldActions.hasIcon()}
           TipTool={_fieldActions.hasTipTool()}
-          IconName="Money"
+          IconName="Calendar"
         />
         {!(_fieldActions.isReadOnly()) && !(_fieldActions.isDisabled()) ?
           <DatePicker
