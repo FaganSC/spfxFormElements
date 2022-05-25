@@ -14,6 +14,7 @@
     "@microsoft/sp-office-ui-fabric-core": "1.13.1",
     "@microsoft/sp-property-pane": "1.13.1",
     "@microsoft/sp-webpart-base": "1.13.1",
+    "moment": "^2.29.3",
     "office-ui-fabric-react": "7.174.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
