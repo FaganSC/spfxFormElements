@@ -58,7 +58,9 @@ export class SPDateField extends React.Component<ISPDateFieldProps, ISPDateField
     if (DateFormat !== undefined) {
       format = DateFormat;
     }
-    if (typeof (date) === 'string') {
+    if (date === null){
+      return null;
+    } else if (typeof (date) === 'string') {
       return moment(date).format(format);
     } else {
       return moment(date.toString()).format(format);
