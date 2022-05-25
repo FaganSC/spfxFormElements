@@ -9,7 +9,6 @@ import { TextField } from '@fluentui/react/lib/components/TextField/TextField';
 export interface ISPPhoneNumberFieldProps {
     Label: string;
     Data?: any;
-    MaxLength?: number;
     FieldName?: string;
     ClassName?: string | string[];
     ReadOnly?: boolean;
