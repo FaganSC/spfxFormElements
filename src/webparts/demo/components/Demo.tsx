@@ -8,6 +8,7 @@ import { SPCurrencyField } from '../../../SPCurrencyField';
 import { SPDateField } from '../../../SPDateField';
 import { SPPhoneNumberField } from '../../../SPPhoneNumberField';
 import { SPNumberField } from '../../../SPNumberField';
+import { SPPercentageField } from '../../../SPPercentageField';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
@@ -36,12 +37,14 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
         testData: {
           TextBox: "Plain Text Box Data",
           USDCurrency: "100000.00",
-          DatePicker: "2022-05-01T00:00:00-04:00",
-          DatePicker2: "2022-06-01T00:00:00-04:00",
+          DatePicker: "2022-05-01T00:00:00Z",
+          DatePicker2: "2022-06-01T00:00:00Z",
           PhoneNumber: "(555) 123-4567",
           WholeNumber: 1000,
           DecimalNumber: 10.5015,
-          DecimalNumberTwo: 10.50
+          DecimalNumberTwo: 10.50,
+          Percentage: .5,
+          PercentageDecimal: .055,
         }
       });
     } else {
@@ -102,7 +105,14 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><SPNumberField Data={testData} FieldName="DecimalNumberTwo" Label='Decimal Numbers (Two)' DecimalScale={2} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{testData.DecimalNumberTwo}</b></td>
           </tr>
-          
+          <tr>
+            <td><SPPercentageField Data={testData} FieldName="Percentage" Label='Percentage' DecimalScale={0} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.Percentage}</b></td>
+          </tr>
+          <tr>
+            <td><SPPercentageField Data={testData} FieldName="PercentageDecimal" Label='Percentage (2 Decimals)' DecimalScale={2} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.PercentageDecimal}</b></td>
+          </tr>
         </table>
       </div>
     );
