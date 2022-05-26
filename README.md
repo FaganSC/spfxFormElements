@@ -74,3 +74,4 @@ This extension illustrates the following concepts:
 
 
 https://github.com/larkintuckerllc/react-currency-input
+https://github.com/s-yadav/react-number-format

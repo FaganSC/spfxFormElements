@@ -39,6 +39,15 @@ export class FieldActions {
         }
     }
 
+    
+    public getDecimalScale(): number {
+        if (this.props.DecimalScale !== undefined) {
+            return this.props.DecimalScale;
+        } else {
+            return 0;
+        }
+    }
+
     public getErrorMessage(): string {
         if (this.props.Errors !== undefined) {
             return this.props.Errors.filter((field => field === this.props.FieldName)).length > 0 ? ErrorMsg : null;
