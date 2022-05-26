@@ -7,6 +7,7 @@ import { SPTextBoxField } from '../../../SPTextBoxField';
 import { SPCurrencyField } from '../../../SPCurrencyField';
 import { SPDateField } from '../../../SPDateField';
 import { SPPhoneNumberField } from '../../../SPPhoneNumberField';
+import { SPNumberField } from '../../../SPNumberField';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
@@ -37,7 +38,10 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           USDCurrency: "100000.00",
           DatePicker: "2022-05-01T00:00:00-04:00",
           DatePicker2: "2022-06-01T00:00:00-04:00",
-          PhoneNumber: "(555) 123-4567"
+          PhoneNumber: "(555) 123-4567",
+          WholeNumber: 1000,
+          DecimalNumber: 10.5015,
+          DecimalNumberTwo: 10.50
         }
       });
     } else {
@@ -86,6 +90,19 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><SPPhoneNumberField Data={testData} FieldName="PhoneNumber" Label='Phone Number' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{testData.PhoneNumber}</b></td>
           </tr>
+          <tr>
+            <td><SPNumberField Data={testData} FieldName="WholeNumber" Label='Whole Numbers' DecimalScale={0} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.WholeNumber}</b></td>
+          </tr>
+          <tr>
+            <td><SPNumberField Data={testData} FieldName="DecimalNumber" Label='Decimal Numbers (No Limit)' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.DecimalNumber}</b></td>
+          </tr>
+          <tr>
+            <td><SPNumberField Data={testData} FieldName="DecimalNumberTwo" Label='Decimal Numbers (Two)' DecimalScale={2} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.DecimalNumberTwo}</b></td>
+          </tr>
+          
         </table>
       </div>
     );
