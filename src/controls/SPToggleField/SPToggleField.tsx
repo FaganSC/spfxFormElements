@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TextField, Toggle } from '@fluentui/react';
+import { Icon, mergeStyles, Toggle } from '@fluentui/react';
 import styles from '../../common/FormFields.module.scss';
 import { FieldActions } from '../../common/FieldActions';
 import { FieldLabel } from '../../common/FieldLabel';
@@ -87,7 +87,15 @@ export class SPToggleField extends React.Component<ISPToggleFieldProps, ISPToggl
         const { props } = this;
         const { FieldsValue } = this.state;
         const iconProps = props.ReadOnly ? { iconName: 'Lock' } : null;
+        const readonlyIcon = FieldsValue ? "ToggleRight" : "ToggleLeft";
         let _fieldActions: FieldActions = new FieldActions(props);
+        const iconClass = mergeStyles({
+            fontSize: 40,
+            lineHeight: 20
+        });
+        const iconTrueClass = FieldsValue && mergeStyles({
+            color: "#0078d4"
+        });
         return (
             <div className={styles.fieldContainer}>
                 <FieldLabel
@@ -97,14 +105,20 @@ export class SPToggleField extends React.Component<ISPToggleFieldProps, ISPToggl
                     TipTool={_fieldActions.hasTipTool()}
                     IconName="TextField"
                 />
-                <Toggle
-                    checked={FieldsValue}
-                    className={_fieldActions.getClassNames()}
-                    disabled={_fieldActions.isDisabled()}
-                    onText={this.getOnText()}
-                    offText={this.getOffText()}
-                    onChange={(event, checked) => this.handleOnChange(event, checked)}
-                />
+                {!(_fieldActions.isReadOnly()) ?
+                    <Toggle
+                        checked={FieldsValue}
+                        className={_fieldActions.getClassNames()}
+                        disabled={_fieldActions.isDisabled()}
+                        onText={this.getOnText()}
+                        offText={this.getOffText()}
+                        onChange={(event, checked) => this.handleOnChange(event, checked)}
+                    /> :
+                    <div className={styles.readOnly}>
+                        <Icon className={mergeStyles(iconClass, iconTrueClass, styles.fieldIcon)} iconName={readonlyIcon} />
+                        <Icon className={mergeStyles(styles.lockIcon,styles.fieldIcon)} iconName={"Lock"} />
+                    </div>
+                }
             </div>
         );
     }
