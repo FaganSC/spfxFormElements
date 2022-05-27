@@ -9,7 +9,34 @@ import { SPDateField } from '../../../SPDateField';
 import { SPPhoneNumberField } from '../../../SPPhoneNumberField';
 import { SPNumberField } from '../../../SPNumberField';
 import { SPPercentageField } from '../../../SPPercentageField';
+import { SPDropDownField } from '../../../SPDropDownField';
+import { DropdownMenuItemType, IDropdownOption } from '@fluentui/react/lib/Dropdown';
 
+export const dropdownNumberData: IDropdownOption[] = [
+  { key: -1, text: 'Fruits', itemType: DropdownMenuItemType.Header },
+  { key: 1, text: 'Apple' },
+  { key: 2, text: 'Banana' },
+  { key: 3, text: 'Orange', disabled: true },
+  { key: 4, text: 'Grape' },
+  { key: -2, text: '-', itemType: DropdownMenuItemType.Divider },
+  { key: -3, text: 'Vegetables', itemType: DropdownMenuItemType.Header },
+  { key: 5, text: 'Broccoli' },
+  { key: 6, text: 'Carrot' },
+  { key: 7, text: 'Lettuce' },
+];
+
+export const dropdownStringData: IDropdownOption[] = [
+  { key: 'fruitsHeader', text: 'Fruits', itemType: DropdownMenuItemType.Header },
+  { key: 'apple', text: 'Apple' },
+  { key: 'banana', text: 'Banana' },
+  { key: 'orange', text: 'Orange', disabled: true },
+  { key: 'grape', text: 'Grape' },
+  { key: 'divider_1', text: '-', itemType: DropdownMenuItemType.Divider },
+  { key: 'vegetablesHeader', text: 'Vegetables', itemType: DropdownMenuItemType.Header },
+  { key: 'broccoli', text: 'Broccoli' },
+  { key: 'carrot', text: 'Carrot' },
+  { key: 'lettuce', text: 'Lettuce' },
+];
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
     super(props);
@@ -45,6 +72,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           DecimalNumberTwo: 10.50,
           Percentage: .5,
           PercentageDecimal: .055,
+          DropDownSingleString: "apple",
+          DropDownSingleNumber: 5
         }
       });
     } else {
@@ -112,6 +141,14 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           <tr>
             <td><SPPercentageField Data={testData} FieldName="PercentageDecimal" Label='Percentage (2 Decimals)' DecimalScale={2} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{testData.PercentageDecimal}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropDownField Data={testData} FieldName="DropDownSingleString" Label='DropDown Single Select (String Keys)' Options={dropdownStringData} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.DropDownSingleString}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropDownField Data={testData} FieldName="DropDownSingleNumber" Label='DropDown Single Select (Number Keys)' Options={dropdownNumberData} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.DropDownSingleNumber}</b></td>
           </tr>
         </table>
       </div>
