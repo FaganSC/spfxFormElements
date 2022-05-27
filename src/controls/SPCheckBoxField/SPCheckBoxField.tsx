@@ -81,7 +81,7 @@ export class SPCheckBoxField extends React.Component<ISPCheckBoxFieldProps, ISPC
                     Required={_fieldActions.isRequired()}
                     UseIcon={_fieldActions.hasIcon()}
                     TipTool={_fieldActions.hasTipTool()}
-                    IconName="TextField"
+                    IconName="CheckboxComposite"
                 />
                 {!(_fieldActions.isReadOnly()) ?
                     <Checkbox
