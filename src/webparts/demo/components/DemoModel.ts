@@ -14,4 +14,6 @@ export class IDemoModel {
     public DropDownSingleNumber: number = null;
     public DropDownMultipleString: string[] = [];
     public DropDownMultipleNumber: number[] = [];
+    public Toggle1: boolean = false;
+    public Toggle2: boolean = false;
 }

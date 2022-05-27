@@ -1,0 +1,111 @@
+import * as React from 'react';
+import { TextField, Toggle } from '@fluentui/react';
+import styles from '../../common/FormFields.module.scss';
+import { FieldActions } from '../../common/FieldActions';
+import { FieldLabel } from '../../common/FieldLabel';
+
+export interface ISPToggleFieldProps {
+    Label: string;
+    Data?: any;
+    OffText?: string;
+    OnText?: string;
+    FieldName?: string;
+    ClassName?: string | string[];
+    ReadOnly?: boolean;
+    Disabled?: boolean;
+    Required?: boolean | string[];
+    Errors?: string[];
+    UseIcon?: boolean;
+    TipTool?: string;
+    onChange?: any;
+}
+
+export interface ISPToggleFieldState {
+    FieldsValue: boolean;
+}
+
+export class SPToggleField extends React.Component<ISPToggleFieldProps, ISPToggleFieldState> {
+    constructor(props) {
+        super(props);
+        this.handleDataFormat = this.handleDataFormat.bind(this);
+        this.handleOnChange = this.handleOnChange.bind(this);
+        this.getOffText = this.getOffText.bind(this);
+        this.getOnText = this.getOnText.bind(this);
+        this.state = {
+            FieldsValue: this.handleDataFormat()
+        };
+    }
+
+    private handleDataFormat = (): boolean => {
+        return this.props.Data !== undefined
+            && this.props.Data !== null
+            && Object.keys(this.props.Data).length > 0
+            && this.props.Data[this.props.FieldName] !== null
+            ? this.props.Data[this.props.FieldName] : false;
+    }
+
+    private handleOnChange = (event: React.MouseEvent<HTMLElement>, checked?: boolean) => {
+        const { props } = this;
+        let FieldsValue = (checked ? checked : false);
+        this.setState({ FieldsValue: FieldsValue });
+        var DataObj: any = props.Data;
+        DataObj[props.FieldName] = FieldsValue;
+        props.onChange(props.FieldName, DataObj);
+    }
+
+    private getOnText(): string {
+        if (this.props.OnText !== undefined) {
+            return this.props.OnText;
+        } else {
+            return "On";
+        }
+    }
+
+    private getOffText(): string {
+        if (this.props.OffText !== undefined) {
+            return this.props.OffText;
+        } else {
+            return "Off";
+        }
+    }
+
+    public componentDidMount = () => {
+        //alert('Load');
+    }
+
+    public componentWillUnmount = () => {
+        //alert('Unload');
+    }
+
+    public componentDidUpdate = (prevProps) => {
+        if (this.props.Data[this.props.FieldName] !== prevProps.Data[this.props.FieldName]) {
+            this.setState({ FieldsValue: this.handleDataFormat() });
+        }
+    }
+
+    public render(): JSX.Element {
+        const { props } = this;
+        const { FieldsValue } = this.state;
+        const iconProps = props.ReadOnly ? { iconName: 'Lock' } : null;
+        let _fieldActions: FieldActions = new FieldActions(props);
+        return (
+            <div className={styles.fieldContainer}>
+                <FieldLabel
+                    Label={props.Label}
+                    Required={_fieldActions.isRequired()}
+                    UseIcon={_fieldActions.hasIcon()}
+                    TipTool={_fieldActions.hasTipTool()}
+                    IconName="TextField"
+                />
+                <Toggle
+                    checked={FieldsValue}
+                    className={_fieldActions.getClassNames()}
+                    disabled={_fieldActions.isDisabled()}
+                    onText={this.getOnText()}
+                    offText={this.getOffText()}
+                    onChange={(event, checked) => this.handleOnChange(event, checked)}
+                />
+            </div>
+        );
+    }
+}

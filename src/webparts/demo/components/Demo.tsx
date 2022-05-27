@@ -12,6 +12,7 @@ import { SPPercentageField } from '../../../SPPercentageField';
 import { SPDropDownField } from '../../../SPDropDownField';
 import { DropdownMenuItemType, IDropdownOption } from '@fluentui/react/lib/Dropdown';
 import { IDemoModel } from './DemoModel';
+import { SPToggleField } from '../../../SPToggleField';
 
 export const dropdownNumberData: IDropdownOption[] = [
   { key: -1, text: 'Fruits', itemType: DropdownMenuItemType.Header },
@@ -76,7 +77,9 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           DropDownSingleString: "apple",
           DropDownSingleNumber: 5,
           DropDownMultipleString: ["apple", "carrot"],
-          DropDownMultipleNumber: [2, 5]
+          DropDownMultipleNumber: [2, 5],
+          Toggle1: true,
+          Toggle2: true
         }
       });
     } else {
@@ -160,6 +163,14 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           <tr>
             <td><SPDropDownField Data={testData} FieldName="DropDownMultipleNumber" Label='DropDown Multiple Select (Number Keys)' Options={dropdownNumberData} MultiSelect Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{JSON.stringify(testData.DropDownMultipleNumber)}</b></td>
+          </tr>
+          <tr>
+            <td><SPToggleField Data={testData} FieldName="Toggle1" Label='Toggle (Default Text)' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{JSON.stringify(testData.Toggle1)}</b></td>
+          </tr>
+          <tr>
+            <td><SPToggleField Data={testData} FieldName="Toggle2" Label='Toggle (Custom Text)' OnText='True' OffText='False' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{JSON.stringify(testData.Toggle2)}</b></td>
           </tr>
         </table>
       </div>
