@@ -11,6 +11,7 @@ import { SPNumberField } from '../../../SPNumberField';
 import { SPPercentageField } from '../../../SPPercentageField';
 import { SPDropDownField } from '../../../SPDropDownField';
 import { DropdownMenuItemType, IDropdownOption } from '@fluentui/react/lib/Dropdown';
+import { IDemoModel } from './DemoModel';
 
 export const dropdownNumberData: IDropdownOption[] = [
   { key: -1, text: 'Fruits', itemType: DropdownMenuItemType.Header },
@@ -48,7 +49,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
       testIcon: false,
       testTipTool: false,
       testDefaultData: false,
-      testData: {}
+      testData: new IDemoModel()
     };
   }
 
@@ -73,13 +74,15 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           Percentage: .5,
           PercentageDecimal: .055,
           DropDownSingleString: "apple",
-          DropDownSingleNumber: 5
+          DropDownSingleNumber: 5,
+          DropDownMultipleString: ["apple", "carrot"],
+          DropDownMultipleNumber: [2, 5]
         }
       });
     } else {
       this.setState({
         testDefaultData: checked,
-        testData: {}
+        testData: new IDemoModel()
       });
     }
   }
@@ -149,6 +152,14 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           <tr>
             <td><SPDropDownField Data={testData} FieldName="DropDownSingleNumber" Label='DropDown Single Select (Number Keys)' Options={dropdownNumberData} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{testData.DropDownSingleNumber}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropDownField Data={testData} FieldName="DropDownMultipleString" Label='DropDown Multiple Select (String Keys)' Options={dropdownStringData} MultiSelect Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{JSON.stringify(testData.DropDownMultipleString)}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropDownField Data={testData} FieldName="DropDownMultipleNumber" Label='DropDown Multiple Select (Number Keys)' Options={dropdownNumberData} MultiSelect Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{JSON.stringify(testData.DropDownMultipleNumber)}</b></td>
           </tr>
         </table>
       </div>

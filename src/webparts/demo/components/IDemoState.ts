@@ -1,3 +1,4 @@
+import { IDemoModel } from "./DemoModel";
 export interface IDemoState {
     testRequired: boolean;
     testDisabled: boolean;
@@ -7,6 +8,6 @@ export interface IDemoState {
     testTipTool: boolean;
     testTipToolMsg?: string;
     
-    testData: any;
+    testData: IDemoModel;
   }
   
