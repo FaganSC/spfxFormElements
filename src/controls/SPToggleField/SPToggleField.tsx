@@ -103,7 +103,7 @@ export class SPToggleField extends React.Component<ISPToggleFieldProps, ISPToggl
                     Required={_fieldActions.isRequired()}
                     UseIcon={_fieldActions.hasIcon()}
                     TipTool={_fieldActions.hasTipTool()}
-                    IconName="TextField"
+                    IconName="ToggleRight"
                 />
                 {!(_fieldActions.isReadOnly()) ?
                     <Toggle
