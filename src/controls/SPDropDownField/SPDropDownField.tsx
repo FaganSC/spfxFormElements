@@ -7,6 +7,7 @@ import { FieldLabel } from '../../common/FieldLabel';
 export interface ISPDropDownFieldProps {
     Label: string;
     Options: IDropdownOption[];
+    MultiSelect?: boolean;
     Data?: any;
     FieldName?: string;
     ClassName?: string | string[];
@@ -20,20 +21,23 @@ export interface ISPDropDownFieldProps {
 }
 
 export interface ISPDropDownFieldState {
-    FieldsValue: string | number;
+    selectedKey: string | number;
+    selectedKeys: string[];
 }
 
 export class SPDropDownField extends React.Component<ISPDropDownFieldProps, ISPDropDownFieldState> {
     constructor(props) {
         super(props);
         this.handleDataFormat = this.handleDataFormat.bind(this);
-        this.handleOnChange = this.handleOnChange.bind(this);
+        this.handleOnSingleChange = this.handleOnSingleChange.bind(this);
+        this.handleOnMultiChange = this.handleOnMultiChange.bind(this);
         this.state = {
-            FieldsValue: this.handleDataFormat()
+            selectedKey: this.handleDataFormat(),
+            selectedKeys: this.handleArrayFormat()
         };
     }
 
-    private handleDataFormat = (): string => {
+    private handleDataFormat = (): string | number => {
         return this.props.Data !== undefined
             && this.props.Data !== null
             && Object.keys(this.props.Data).length > 0
@@ -41,16 +45,37 @@ export class SPDropDownField extends React.Component<ISPDropDownFieldProps, ISPD
             ? this.props.Data[this.props.FieldName] : null;
     }
 
-    private handleOnChange = (event: React.FormEvent<HTMLDivElement>, item: IDropdownOption) => {
+    private handleArrayFormat = (): string[] => {
+        return this.props.Data !== undefined
+            && this.props.Data !== null
+            && Object.keys(this.props.Data).length > 0
+            && this.props.Data[this.props.FieldName] !== null
+            ? this.props.Data[this.props.FieldName] : [];
+    }
+
+    private handleOnSingleChange = (event: React.FormEvent<HTMLDivElement>, item: IDropdownOption) => {
         const { props } = this;
-        let FieldsValue = (item ? item.key : null);
-        this.setState({ FieldsValue: FieldsValue });
+        let selectedKey = (item ? item.key : null);
+        this.setState({ selectedKey: selectedKey });
         var DataObj: any = props.Data;
-        if (!FieldsValue) {
+        if (!selectedKey) {
             DataObj[props.FieldName] = null;
         } else {
-            DataObj[props.FieldName] = FieldsValue;
+            DataObj[props.FieldName] = selectedKey;
         }
+        props.onChange(props.FieldName, DataObj);
+    }
+
+    private handleOnMultiChange = (event: React.FormEvent<HTMLDivElement>, item: IDropdownOption) => {
+        const { props } = this;
+        const { selectedKeys } = this.state;
+        var DataObj: any = props.Data;
+        let selected: string[] = [];
+        if (item) {
+            selected = item.selected ? [...selectedKeys, item.key as string] : selectedKeys.filter(key => key !== item.key);
+        }
+        this.setState({ selectedKeys: selected });
+        DataObj[props.FieldName] = selected;
         props.onChange(props.FieldName, DataObj);
     }
 
@@ -64,15 +89,25 @@ export class SPDropDownField extends React.Component<ISPDropDownFieldProps, ISPD
 
     public componentDidUpdate = (prevProps) => {
         if (this.props.Data[this.props.FieldName] !== prevProps.Data[this.props.FieldName]) {
-            this.setState({ FieldsValue: this.handleDataFormat() });
+            this.setState({ selectedKey: this.handleDataFormat(), selectedKeys: this.handleArrayFormat() });
         }
     }
 
     public render(): JSX.Element {
         const { props } = this;
-        const { FieldsValue } = this.state;
+        const { selectedKey, selectedKeys } = this.state;
         const iconProps = props.ReadOnly ? { iconName: 'Lock' } : null;
         let _fieldActions: FieldActions = new FieldActions(props);
+        let readyOnlyValue: string = "";
+        if (_fieldActions.isMultiSelect()) {
+            selectedKeys.map((key => {
+                readyOnlyValue += _fieldActions.isReadOnly() && `${props.Options.filter((item => item.key === key))[0].text}, `;
+            }));
+            readyOnlyValue = readyOnlyValue.slice(0, readyOnlyValue.length - 2);
+        } else {
+            readyOnlyValue = _fieldActions.isReadOnly() && selectedKey && props.Options.filter((item => item.key === selectedKey))[0].text;
+        }
+
         return (
             <div className={styles.fieldContainer}>
                 <FieldLabel
@@ -82,22 +117,36 @@ export class SPDropDownField extends React.Component<ISPDropDownFieldProps, ISPD
                     TipTool={_fieldActions.hasTipTool()}
                     IconName="TextField"
                 />
-                {!(_fieldActions.isReadOnly()) ?
+
+                {!(_fieldActions.isMultiSelect()) && !(_fieldActions.isReadOnly()) &&
                     <Dropdown
                         placeholder="Select an option"
-                        multiSelect={false}
                         options={props.Options}
                         disabled={_fieldActions.isDisabled()}
                         className={_fieldActions.getClassNames()}
                         errorMessage={_fieldActions.getErrorMessage()}
-                        onChange={(event, item) => this.handleOnChange(event, item)}
-                        selectedKey={FieldsValue}
-                    /> :
+                        onChange={(event, item) => this.handleOnSingleChange(event, item)}
+                        selectedKey={selectedKey}
+                    />}
+
+                {(_fieldActions.isMultiSelect()) && !(_fieldActions.isReadOnly()) &&
+                    <Dropdown
+                        placeholder="Select an option"
+                        multiSelect={true}
+                        options={props.Options}
+                        disabled={_fieldActions.isDisabled()}
+                        className={_fieldActions.getClassNames()}
+                        errorMessage={_fieldActions.getErrorMessage()}
+                        onChange={(event, item) => this.handleOnMultiChange(event, item)}
+                        selectedKeys={selectedKeys}
+                    />}
+
+                {(_fieldActions.isReadOnly()) &&
                     <TextField
                         readOnly={_fieldActions.isReadOnly()}
                         disabled={_fieldActions.isDisabled()}
                         className={_fieldActions.getClassNames()}
-                        value={props.Options.filter((item => item.key === FieldsValue))[0].text}
+                        value={readyOnlyValue}
                         iconProps={iconProps}
                     />
                 }

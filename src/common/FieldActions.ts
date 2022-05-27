@@ -39,7 +39,15 @@ export class FieldActions {
         }
     }
 
-    
+    public isMultiSelect(): boolean {
+        if (this.props.MultiSelect !== undefined) {
+            return this.props.MultiSelect;
+        } else {
+            return false;
+        }
+    }
+
+
     public getDecimalScale(): number {
         if (this.props.DecimalScale !== undefined) {
             return this.props.DecimalScale;
