@@ -16,4 +16,5 @@ export class IDemoModel {
     public DropDownMultipleNumber: number[] = [];
     public Toggle1: boolean = false;
     public Toggle2: boolean = false;
+    public CheckBox: boolean = false;
 }
