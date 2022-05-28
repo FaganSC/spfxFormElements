@@ -1,0 +1,24 @@
+site_name: '@fagansc/spfxformcontrola'
+nav:
+  - Home: 'index.md'
+theme:
+  name: 'material'
+  palette:
+    primary: 'teal'
+  logo: ''
+  feature:
+    tabs: true
+extra_css:
+  - ''
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+extra:
+  social:
+    - type: 'twitter'
+      link: 'https://twitter.com/fagansc'
+repo_url: https://github.com/FaganSC/spfxFormControls
+edit_uri: blob/master/docs/documentation/docs
