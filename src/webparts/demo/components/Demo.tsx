@@ -10,10 +10,13 @@ import { SPPhoneNumberField } from '../../../SPPhoneNumberField';
 import { SPNumberField } from '../../../SPNumberField';
 import { SPPercentageField } from '../../../SPPercentageField';
 import { SPDropDownField } from '../../../SPDropDownField';
-import { DropdownMenuItemType, IDropdownOption } from '@fluentui/react/lib/Dropdown';
 import { IDemoModel } from './DemoModel';
 import { SPToggleField } from '../../../SPToggleField';
 import { SPCheckBoxField } from '../../../SPCheckBoxField';
+
+import { DropdownMenuItemType, IDropdownOption } from '@fluentui/react/lib/Dropdown';
+import { IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup';
+import { Layout, SPChoiceField } from '../../../SPChoiceField';
 
 export const dropdownNumberData: IDropdownOption[] = [
   { key: -1, text: 'Fruits', itemType: DropdownMenuItemType.Header },
@@ -39,6 +42,19 @@ export const dropdownStringData: IDropdownOption[] = [
   { key: 'broccoli', text: 'Broccoli' },
   { key: 'carrot', text: 'Carrot' },
   { key: 'lettuce', text: 'Lettuce' },
+];
+
+export const radioVerticalChoices: IChoiceGroupOption[] = [
+  { key: 'apple', text: 'Apple' },
+  { key: 'banana', text: 'Banana' },
+  { key: 'orange', text: 'Orange', disabled: true },
+  { key: 'grape', text: 'Grape' }
+];
+
+export const radioHorizontalChoices: IChoiceGroupOption[] = [
+  { key: 'broccoli', text: 'Broccoli' },
+  { key: 'carrot', text: 'Carrot' },
+  { key: 'lettuce', text: 'Lettuce' }
 ];
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
@@ -81,7 +97,9 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           DropDownMultipleNumber: [2, 5],
           Toggle1: true,
           Toggle2: true,
-          CheckBox: true
+          CheckBox: true,
+          RadioVertical: "apple",
+          RadioHorizontal: "carrot"
         }
       });
     } else {
@@ -177,6 +195,14 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           <tr>
             <td><SPCheckBoxField Data={testData} FieldName="CheckBox" Label='CheckBox' Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{JSON.stringify(testData.CheckBox)}</b></td>
+          </tr>
+          <tr>
+            <td><SPChoiceField Data={testData} FieldName="RadioVertical" Label='Radio Buttons (Vertical)' Choices={radioVerticalChoices} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.RadioVertical}</b></td>
+          </tr>
+          <tr>
+            <td><SPChoiceField Data={testData} FieldName="RadioHorizontal" Label='Radio Buttons (Horizontal)' Choices={radioHorizontalChoices} Layout={Layout.Horizontal} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
+            <td><b>{testData.RadioHorizontal}</b></td>
           </tr>
         </table>
       </div>

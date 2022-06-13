@@ -52,9 +52,9 @@
             color: "[theme:neutralSecondary, default: #605e5c]";
         }
     }
-    .readOnly{
+    .readOnly {
         position: relative;
-        .lockIcon{
+        .lockIcon {
             position: absolute;
             bottom: 6px;
             right: 8px;
@@ -141,4 +141,15 @@
             }
         }
     }
+}
+
+.SPChoiceHorizontal > div > div {
+    display: flex;
+    & > div {
+        padding: 0 5px;
+    }
+}
+
+.SPHorizontalLayoutReadOnly {
+    display: flex;
 }

@@ -64,11 +64,24 @@ export class FieldActions {
         }
     }
 
-    public getClassNames(): string {
-        if (Array.isArray(this.props.ClassName)) {
-            return this.props.ClassName.join(' ');
+    public getClassNames(AddedClass?: string): string {
+        if (AddedClass !== undefined) {
+            if (Array.isArray(this.props.ClassName)) {
+                let classes: string[] = this.props.ClassName;
+                classes.push(AddedClass);
+                return classes.join(' ');
+            } else {
+                let classes: string[] = [];
+                classes.push(this.props.ClassName);
+                classes.push(AddedClass);
+                return classes.join(' ');
+            }
         } else {
-            return this.props.ClassName;
+            if (Array.isArray(this.props.ClassName)) {
+                return this.props.ClassName.join(' ');
+            } else {
+                return this.props.ClassName;
+            }
         }
     }
 
