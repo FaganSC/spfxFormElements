@@ -1,26 +1,11 @@
 import * as React from 'react';
-import { Checkbox, Icon, mergeStyles } from '@fluentui/react';
+
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
 
-export interface ISPCheckBoxFieldProps {
-    Label: string;
-    Data?: any;
-    FieldName?: string;
-    ClassName?: string | string[];
-    ReadOnly?: boolean;
-    Disabled?: boolean;
-    Required?: boolean | string[];
-    Errors?: string[];
-    UseIcon?: boolean;
-    TipTool?: string;
-    onChange?: any;
-}
+import { ISPCheckBoxFieldProps, ISPCheckBoxFieldState } from ".";
+import { FieldActions, FieldLabel } from "../../common";
 
-export interface ISPCheckBoxFieldState {
-    FieldsValue: boolean;
-}
+import { Checkbox, Icon, mergeStyles } from '@fluentui/react';
 
 export class SPCheckBoxField extends React.Component<ISPCheckBoxFieldProps, ISPCheckBoxFieldState> {
     constructor(props) {
