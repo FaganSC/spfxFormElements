@@ -1,28 +1,10 @@
 import * as React from 'react';
-import { Icon, mergeStyles, Toggle } from '@fluentui/react';
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
 
-export interface ISPToggleFieldProps {
-    Label: string;
-    Data?: any;
-    OffText?: string;
-    OnText?: string;
-    FieldName?: string;
-    ClassName?: string | string[];
-    ReadOnly?: boolean;
-    Disabled?: boolean;
-    Required?: boolean | string[];
-    Errors?: string[];
-    UseIcon?: boolean;
-    TipTool?: string;
-    onChange?: any;
-}
+import { ISPToggleFieldProps, ISPToggleFieldState } from ".";
+import { FieldActions, FieldLabel } from "../../common"
 
-export interface ISPToggleFieldState {
-    FieldsValue: boolean;
-}
+import { Icon, mergeStyles, Toggle } from '@fluentui/react';
 
 export class SPToggleField extends React.Component<ISPToggleFieldProps, ISPToggleFieldState> {
     constructor(props) {
