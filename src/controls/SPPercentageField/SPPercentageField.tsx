@@ -1,28 +1,11 @@
 import * as React from 'react';
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
+
+import { ISPPercentageFieldProps, ISPPercentageFieldState } from ".";
+import { FieldActions, FieldLabel } from "../../common";
+
 import NumberFormat, { NumberFormatValues } from 'react-number-format';
 import { TextField } from '@fluentui/react/lib/components/TextField/TextField';
-
-export interface ISPPercentageFieldProps {
-    Label: string;
-    Data?: any;
-    DecimalScale?: number;
-    FieldName?: string;
-    ClassName?: string | string[];
-    ReadOnly?: boolean;
-    Disabled?: boolean;
-    Required?: boolean | string[];
-    Errors?: string[];
-    UseIcon?: boolean;
-    TipTool?: string;
-    onChange?: any;
-}
-
-export interface ISPPercentageFieldState {
-    FieldsValue: NumberFormatValues;
-}
 
 export class SPPercentageField extends React.Component<ISPPercentageFieldProps, ISPPercentageFieldState> {
     constructor(props) {
