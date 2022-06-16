@@ -1,12 +1,12 @@
 {
-  "name": "spfx-form-controls",
-  "version": "0.0.1",
-  "private": true,
+  "name": "fagansc-spfx-form-controls",
+  "version": "0.0.6",
   "main": "lib/index.js",
   "scripts": {
     "build": "gulp bundle",
     "clean": "gulp clean",
-    "test": "gulp test"
+    "test": "gulp test",
+    "postinstall": "node postinstall/install.js"
   },
   "dependencies": {
     "@microsoft/sp-core-library": "1.13.1",
@@ -17,10 +17,12 @@
     "moment": "^2.29.3",
     "office-ui-fabric-react": "7.174.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-currency-input": "^1.3.6",
+    "react-number-format": "^4.9.3",
+    "@fluentui/react": "^8.67.2"
   },
   "devDependencies": {
-    "@fluentui/react": "^8.67.2",
     "@microsoft/rush-stack-compiler-3.9": "0.4.47",
     "@microsoft/sp-build-web": "1.13.1",
     "@microsoft/sp-module-interfaces": "1.13.1",
@@ -29,8 +31,27 @@
     "@types/react-dom": "16.9.8",
     "@types/webpack-env": "1.13.1",
     "ajv": "~5.2.2",
-    "gulp": "^4.0.2",
-    "react-currency-input": "^1.3.6",
-    "react-number-format": "^4.9.3"
-  }
+    "gulp": "^4.0.2"
+  },
+  "author": "Shawn Fagan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaganSC/spfxFormControls.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "sharepoint",
+    "tools",
+    "spfx",
+    "framework",
+    "fluent ui",
+    "forms"
+  ],
+  "bugs": {
+    "url": "https://github.com/FaganSC/spfxFormControls/issues"
+  },
+  "homepage": "https://fagansc.github.io/spfxFormControls",
+  "contributors": [
+    "Fagan, Shawn <shawn@fagan.me>"
+  ]
 }

@@ -13,4 +13,14 @@ build.rig.getTasks = function () {
   return result;
 };
 
+if (process.argv.indexOf('--size') !== -1) {
+  build.configureWebpack.mergeConfig({
+    additionalConfiguration: generatedConfiguration => {
+      generatedConfiguration.plugins.push(new BundleAnalyzerPlugin());
+
+      return generatedConfiguration;
+    }
+  });
+}
+
 build.initialize(require('gulp'));
