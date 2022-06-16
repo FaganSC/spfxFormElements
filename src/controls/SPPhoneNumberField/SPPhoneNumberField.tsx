@@ -1,28 +1,12 @@
 import * as React from 'react';
 
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
+
+import { ISPPhoneNumberFieldProps, ISPPhoneNumberFieldState } from ".";
+import { FieldActions, FieldLabel } from "../../common";
+
 import NumberFormat, { NumberFormatValues } from 'react-number-format';
 import { TextField } from '@fluentui/react/lib/components/TextField/TextField';
-
-export interface ISPPhoneNumberFieldProps {
-    Label: string;
-    Data?: any;
-    FieldName?: string;
-    ClassName?: string | string[];
-    ReadOnly?: boolean;
-    Disabled?: boolean;
-    Required?: boolean | string[];
-    Errors?: string[];
-    UseIcon?: boolean;
-    TipTool?: string;
-    onChange?: any;
-}
-
-export interface ISPPhoneNumberFieldState {
-    FieldsValue: NumberFormatValues;
-}
 
 export class SPPhoneNumberField extends React.Component<ISPPhoneNumberFieldProps, ISPPhoneNumberFieldState> {
     constructor(props) {
