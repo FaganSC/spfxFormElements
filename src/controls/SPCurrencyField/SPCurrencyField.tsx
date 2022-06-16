@@ -1,28 +1,12 @@
 import * as React from 'react';
-import { TextField } from '@fluentui/react';
+
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
+
+import { ISPCurrencyFieldProps, ISPCurrencyFieldState } from ".";
+import { FieldActions, FieldLabel } from "../../common";
+
+import { TextField } from '@fluentui/react/lib/TextField';
 import CurrencyInput from 'react-currency-input';
-
-export interface ISPCurrencyFieldProps {
-  Label: string;
-  Data?: any;
-  Precision?: number;
-  FieldName?: string;
-  ClassName?: string | string[];
-  ReadOnly?: boolean;
-  Disabled?: boolean;
-  Required?: boolean | string[];
-  Errors?: string[];
-  UseIcon?: boolean;
-  TipTool?: string;
-  onChange?: any;
-}
-
-export interface ISPCurrencyFieldState {
-  FieldsValue: string;
-}
 
 export class SPCurrencyField extends React.Component<ISPCurrencyFieldProps, ISPCurrencyFieldState> {
   private ValuePrecision: number = this.props.Precision !== undefined ? this.props.Precision : 2;
