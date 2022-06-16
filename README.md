@@ -4,10 +4,7 @@
 
 [![NPM](https://nodei.co/npm/fagansc-spfx-form-controls.png?mini=true)](https://npmjs.org/package/fagansc-spfx-form-controls)
 ## Summary
-This package was developed to help streamline SharePoint Framework development when building forms within SharePoint Online. This package is in active development and more information and documentation to come as the package is continually being updated, as new needs/requirements are found.
-
-> Use with caution until documentation is posted
-
+This package was developed to help streamline SharePoint Framework development when building forms within SharePoint Online. This package is in active development but it's being used within several solutions currently deployed in production. More information and documentation to come as the package is continually being updated, as new needs/requirements are found.
 
 ## Supporting Dependencies
 - [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/)
@@ -23,7 +20,7 @@ This package was developed to help streamline SharePoint Framework development w
 
 Version|Date|Comments
 -------|----|--------
-0.1.0|June 16, 2022|Initial release
+0.1.0|June 18, 2022|Initial release
 
 ## References
 
