@@ -1,33 +1,11 @@
 import * as React from 'react';
-import { Checkbox, ChoiceGroup, IChoiceGroupOption, Icon, mergeStyles } from '@fluentui/react';
+
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
 
-export interface ISPChoiceFieldProps {
-    Label: string;
-    Data?: any;
-    FieldName?: string;
-    Choices: IChoiceGroupOption[];
-    Layout?: Layout;
-    ClassName?: string | string[];
-    ReadOnly?: boolean;
-    Disabled?: boolean;
-    Required?: boolean | string[];
-    Errors?: string[];
-    UseIcon?: boolean;
-    TipTool?: string;
-    onChange?: any;
-}
+import { ISPChoiceFieldProps, ISPChoiceFieldState, Layout } from ".";
+import { FieldActions, FieldLabel } from "../../common";
 
-export interface ISPChoiceFieldState {
-    FieldsValue: string;
-}
-
-export enum Layout {
-    Vertical,
-    Horizontal
-}
+import { ChoiceGroup, IChoiceGroupOption, Icon, mergeStyles } from '@fluentui/react';
 
 export class SPChoiceField extends React.Component<ISPChoiceFieldProps, ISPChoiceFieldState> {
     constructor(props) {
