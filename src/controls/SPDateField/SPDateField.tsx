@@ -1,28 +1,12 @@
 import * as React from 'react';
-import { DatePicker, DayOfWeek, defaultDatePickerStrings, TextField } from '@fluentui/react';
+
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
+
+import { ISPDateFieldProps, ISPDateFieldState } from ".";
+import { FieldActions, FieldLabel } from "../../common";
+
+import { DatePicker, DayOfWeek, defaultDatePickerStrings, TextField } from '@fluentui/react';
 import * as moment from 'moment';
-
-export interface ISPDateFieldProps {
-  Label: string;
-  Data?: any;
-  FieldName?: string;
-  DateFormat?: string;
-  ClassName?: string | string[];
-  ReadOnly?: boolean;
-  Disabled?: boolean;
-  Required?: boolean | string[];
-  Errors?: string[];
-  UseIcon?: boolean;
-  TipTool?: string;
-  onChange?: any;
-}
-
-export interface ISPDateFieldState {
-  FieldsValue: string;
-}
 
 export class SPDateField extends React.Component<ISPDateFieldProps, ISPDateFieldState> {
   constructor(props) {
