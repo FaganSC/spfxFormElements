@@ -1,29 +1,11 @@
 import * as React from 'react';
-import { Dropdown, IDropdownOption, TextField } from '@fluentui/react';
+
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
 
-export interface ISPDropDownFieldProps {
-    Label: string;
-    Options: IDropdownOption[];
-    MultiSelect?: boolean;
-    Data?: any;
-    FieldName?: string;
-    ClassName?: string | string[];
-    ReadOnly?: boolean;
-    Disabled?: boolean;
-    Required?: boolean | string[];
-    Errors?: string[];
-    UseIcon?: boolean;
-    TipTool?: string;
-    onChange?: any;
-}
+import { ISPDropDownFieldProps, ISPDropDownFieldState } from ".";
+import { FieldActions, FieldLabel } from "../../common";
 
-export interface ISPDropDownFieldState {
-    selectedKey: string | number;
-    selectedKeys: string[];
-}
+import { Dropdown, IDropdownOption, TextField } from '@fluentui/react';
 
 export class SPDropDownField extends React.Component<ISPDropDownFieldProps, ISPDropDownFieldState> {
     constructor(props) {
