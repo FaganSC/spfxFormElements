@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 console.log(`Thanks for installing`);
+/*
 console.log("INFO: Adding the required localized resource configuration to the config.json file.");
 
 // Get the current directory
@@ -56,6 +57,6 @@ if (nesting.length > 0) {
 } else {
   console.warn("WARNING: something is wrong with the installation path.");
 }
-
+*/
 console.warn("");
 console.warn("");
