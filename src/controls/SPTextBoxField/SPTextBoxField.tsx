@@ -1,27 +1,10 @@
 import * as React from 'react';
-import { TextField } from '@fluentui/react';
 import styles from '../../common/FormFields.module.scss';
-import { FieldActions } from '../../common/FieldActions';
-import { FieldLabel } from '../../common/FieldLabel';
 
-export interface ISPTextBoxFieldProps {
-    Label: string;
-    Data?: any;
-    MaxLength?: number;
-    FieldName?: string;
-    ClassName?: string | string[];
-    ReadOnly?: boolean;
-    Disabled?: boolean;
-    Required?: boolean | string[];
-    Errors?: string[];
-    UseIcon?: boolean;
-    TipTool?: string;
-    onChange?: any;
-}
+import { ISPTextBoxFieldProps, ISPTextBoxFieldState } from ".";
+import { FieldActions, FieldLabel } from "../../common";
 
-export interface ISPTextBoxFieldState {
-    FieldsValue: string;
-}
+import { TextField } from '@fluentui/react/lib/TextField';
 
 export class SPTextBoxField extends React.Component<ISPTextBoxFieldProps, ISPTextBoxFieldState> {
     constructor(props) {
