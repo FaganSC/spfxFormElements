@@ -1,37 +1,46 @@
-## Welcome to GitHub Pages
+# SFPX Form Elements
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/fagansc-spfx-form-elements.svg)](https://badge.fury.io/js/fagansc-spfx-form-elements)
 
-You can use the [editor on GitHub](https://github.com/FaganSC/spfxFormControls/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+[![NPM](https://nodei.co/npm/fagansc-spfx-form-elements.png?mini=true)](https://npmjs.org/package/fagansc-spfx-form-elements)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=FaganSC_spfxFormControls&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=FaganSC_spfxFormControls)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=FaganSC_spfxFormControls&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=FaganSC_spfxFormControls)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=FaganSC_spfxFormControls&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=FaganSC_spfxFormControls)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=FaganSC_spfxFormControls&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=FaganSC_spfxFormControls)
 
-### Markdown
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=FaganSC_spfxFormControls)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Summary
+This package was developed to help streamline SharePoint Framework development when building forms within SharePoint Online. This package is in active development and more information and documentation to come as the package is continually being updated, as new needs/requirements are found.
 
-```markdown
-Syntax highlighted code block
+> Use with caution until documentation is posted
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Supporting Dependencies
+- [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/)
+- [Moment.js](https://momentjs.com/)
+- [React Currency Input](https://github.com/larkintuckerllc/react-currency-input)
+- [React Number Format](https://github.com/s-yadav/react-number-format)
 
-1. Numbered
-2. List
+## Requirements
 
-**Bold** and _Italic_ and `Code` text
+> SharePoint Framework v 1.13.1 or greater is required. Older versions and beta versions of SharePoint Framework have not been tested with this package.
 
-[Link](url) and ![Image](src)
-```
+## Version history
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+Version|Date|Comments
+-------|----|--------
+0.1.0|June 17, 2022|Initial release
 
-### Jekyll Themes
+## References
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/FaganSC/spfxFormControls/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
+- [Building for Microsoft teams](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-overview)
+- [Use Microsoft Graph in your solution](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
+- [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/publish-to-marketplace-overview)
+- [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
 
-### Support or Contact
+## Disclaimer
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
