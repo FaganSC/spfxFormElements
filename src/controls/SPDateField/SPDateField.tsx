@@ -42,7 +42,7 @@ export class SPDateField extends React.Component<ISPDateFieldProps, ISPDateField
     if (DateFormat !== undefined) {
       format = DateFormat;
     }
-    if (date === null){
+    if (date === null) {
       return null;
     } else if (typeof (date) === 'string') {
       return moment(date).format(format);
@@ -73,12 +73,15 @@ export class SPDateField extends React.Component<ISPDateFieldProps, ISPDateField
         />
         {!(_fieldActions.isReadOnly()) && !(_fieldActions.isDisabled()) ?
           <DatePicker
-            firstDayOfWeek={DayOfWeek.Monday}
+            firstDayOfWeek={props.FirstDayOfWeek === undefined ? DayOfWeek.Sunday : props.FirstDayOfWeek}
             placeholder="Select a date..."
             ariaLabel="Select a date"
             strings={defaultDatePickerStrings}
             value={FieldsValue && FieldsValue !== null ? moment(FieldsValue).toDate() : undefined}
             className={_fieldActions.getClassNames()}
+            maxDate={props.MaxDate !== undefined ? props.MaxDate : null}
+            minDate={props.MinDate !== undefined ? props.MinDate : null}
+            isMonthPickerVisible={props.MonthPickerVisible === undefined ? true : props.MonthPickerVisible}
             formatDate={this.onFormatDate}
             onSelectDate={(date) => this.handleOnChange(date)}
           />
