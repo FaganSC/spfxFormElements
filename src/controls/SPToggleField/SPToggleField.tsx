@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from '../../common/FormFields.module.scss';
 
 import { ISPToggleFieldProps, ISPToggleFieldState } from ".";
-import { FieldActions, FieldLabel } from "../../common"
+import { FieldActions, FieldLabel } from "../../common";
 
 import { Icon, mergeStyles, Toggle } from '@fluentui/react';
 
