@@ -1,7 +1,7 @@
 ---
 name: "\U0001F4A1 Suggestion"
-about: Suggest an enhancement to make one of our web part samples even better
-title: Let's make SAMPLE even better
+about: Suggest an enhancement to make one of our components even better
+title: Let's make COMPONENT even better
 labels: type:enhancement
 assignees: 'fagansc'
 
@@ -18,7 +18,7 @@ Thank you for your suggestion! Use the sections below to submit a suggestion ONL
 
 DELETE EVERYTHING ABOVE AFTER READING - THANKS!
 
-## Sample (which sample are you talking about)
+## Form Element Control (which component are you talking about)
 
 
 ## Authors
