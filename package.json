@@ -1,12 +1,14 @@
 {
   "name": "fagansc-spfx-form-elements",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "lib/index.js",
   "scripts": {
     "build": "gulp bundle",
     "clean": "gulp clean",
     "test": "gulp test",
-    "postinstall": "node postinstall/install.js"
+    "postinstall": "node postinstall/install.js",
+    "package": "gulp clean && gulp build --ship && gulp bundle --ship",
+    "pub": "npm version patch --force && npm publish"
   },
   "dependencies": {
     "@microsoft/sp-core-library": "1.13.1",
