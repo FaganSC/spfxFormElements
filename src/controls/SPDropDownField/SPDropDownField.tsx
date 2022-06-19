@@ -20,26 +20,28 @@ export class SPDropDownField extends React.Component<ISPDropDownFieldProps, ISPD
     }
 
     private handleDataFormat = (): string | number => {
-        return this.props.Data !== undefined
-            && this.props.Data !== null
-            && Object.keys(this.props.Data).length > 0
-            && this.props.Data[this.props.FieldName] !== null
-            ? this.props.Data[this.props.FieldName] : null;
+        const { props } = this;
+        return props.Data !== undefined
+            && props.Data !== null
+            && Object.keys(props.Data).length > 0
+            && props.Data[props.FieldName] !== null
+            ? props.Data[props.FieldName] : null;
     }
 
     private handleArrayFormat = (): string[] => {
-        return this.props.Data !== undefined
-            && this.props.Data !== null
-            && Object.keys(this.props.Data).length > 0
-            && this.props.Data[this.props.FieldName] !== null
-            ? this.props.Data[this.props.FieldName] : [];
+        const { props } = this;
+        return props.Data !== undefined
+            && props.Data !== null
+            && Object.keys(props.Data).length > 0
+            && props.Data[props.FieldName] !== null
+            ? props.Data[props.FieldName] : [];
     }
 
     private handleOnSingleChange = (event: React.FormEvent<HTMLDivElement>, item: IDropdownOption) => {
         const { props } = this;
+        const DataObj: any = props.Data;
         let selectedKey = (item ? item.key : null);
         this.setState({ selectedKey: selectedKey });
-        var DataObj: any = props.Data;
         if (!selectedKey) {
             DataObj[props.FieldName] = null;
         } else {
@@ -70,8 +72,12 @@ export class SPDropDownField extends React.Component<ISPDropDownFieldProps, ISPD
     }
 
     public componentDidUpdate = (prevProps) => {
-        if (this.props.Data[this.props.FieldName] !== prevProps.Data[this.props.FieldName]) {
-            this.setState({ selectedKey: this.handleDataFormat(), selectedKeys: this.handleArrayFormat() });
+        const { props } = this;
+        let _fieldActions: FieldActions = new FieldActions(props);
+        if (!_fieldActions.isMultiSelect() && this.props.Data[this.props.FieldName] !== this.state.selectedKey) {
+            this.setState({ selectedKey: this.handleDataFormat() });
+        } else if (_fieldActions.isMultiSelect() && this.props.Data[this.props.FieldName] !== this.state.selectedKeys) {
+            this.setState({ selectedKeys: this.handleArrayFormat() });
         }
     }
 

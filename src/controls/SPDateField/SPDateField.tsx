@@ -52,7 +52,7 @@ export class SPDateField extends React.Component<ISPDateFieldProps, ISPDateField
   }
 
   public componentDidUpdate = (prevProps) => {
-    if (this.props.Data[this.props.FieldName] !== prevProps.Data[this.props.FieldName]) {
+    if (this.props.Data[this.props.FieldName] !== this.state.FieldsValue) {
       this.setState({ FieldsValue: this.handleDataFormat() });
     }
   }
