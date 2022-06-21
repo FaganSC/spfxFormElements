@@ -66,6 +66,7 @@
     width: 320px;
     padding: 20px 24px;
 }
+
 .spfxTextField {
     font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
         "Helvetica Neue", sans-serif;
@@ -140,6 +141,20 @@
         }
     }
 }
+
+.Attachments {
+    .FilePicker {
+      display: block !important;
+    }
+    .Files {
+      .File {
+        padding: 5px;
+        .Icon {
+          margin: 0 5px 0 0;
+        }
+      }
+    }
+  }
 
 .SPChoiceHorizontal > div > div {
     display: flex;

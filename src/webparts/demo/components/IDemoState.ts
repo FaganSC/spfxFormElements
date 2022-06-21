@@ -9,5 +9,6 @@ export interface IDemoState {
     testTipToolMsg?: string;
     
     testData: IDemoModel;
+    testFiles: any;
   }
   

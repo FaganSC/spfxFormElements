@@ -17,6 +17,7 @@ import { SPCheckBoxField } from '../../../SPCheckBoxField';
 import { DropdownMenuItemType, IDropdownOption } from '@fluentui/react/lib/Dropdown';
 import { IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup';
 import { Layout, SPChoiceField } from '../../../SPChoiceField';
+import { SPListItemFileAttachments } from '../../../SPListItemFileAttachments';
 
 export const dropdownNumberData: IDropdownOption[] = [
   { key: -1, text: 'Fruits', itemType: DropdownMenuItemType.Header },
@@ -60,6 +61,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
     super(props);
     this.onFormFieldChange = this.onFormFieldChange.bind(this);
+    this.onAddFileAttachment = this.onAddFileAttachment.bind(this);
+    this.onRemoveFileAttachment = this.onRemoveFileAttachment.bind(this);
     this.state = {
       testRequired: false,
       testDisabled: false,
@@ -67,7 +70,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
       testIcon: false,
       testTipTool: false,
       testDefaultData: false,
-      testData: new IDemoModel()
+      testData: new IDemoModel(),
+      testFiles: []
     };
   }
 
@@ -75,6 +79,24 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
     console.log(data);
     this.setState({ testData: data });
   }
+
+  private async onAddFileAttachment(files: any[]) {
+    console.log(files);
+    this.setState({ testFiles: files });
+  }
+
+  private async onRemoveFileAttachment(filename: string) {
+    let files = this.state.testFiles;
+    const indexOfObject = files.findIndex((object) => {
+      return object.name === filename;
+    });
+
+    if (indexOfObject !== -1) {
+      files.splice(indexOfObject, 1);
+    }
+    this.setState({testFiles: files});
+  }
+
 
   private setData(checked: boolean) {
     if (checked) {
@@ -111,7 +133,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
   }
 
   public render(): React.ReactElement<IDemoProps> {
-    const { testData, testRequired, testDisabled, testReadOnly, testIcon, testDefaultData, testTipTool, testTipToolMsg } = this.state;
+    const { testData, testFiles, testRequired, testDisabled, testReadOnly, testIcon, testDefaultData, testTipTool, testTipToolMsg } = this.state;
     return (
       <div className={styles.demo}>
         <table width={"100%"}>
@@ -203,6 +225,11 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           <tr>
             <td><SPChoiceField Data={testData} FieldName="RadioHorizontal" Label='Radio Buttons (Horizontal)' Choices={radioHorizontalChoices} Layout={Layout.Horizontal} Required={testRequired} Disabled={testDisabled} ReadOnly={testReadOnly} UseIcon={testIcon} TipTool={testTipToolMsg} onChange={(fieldName, data) => this.onFormFieldChange(fieldName, data)} /></td>
             <td><b>{testData.RadioHorizontal}</b></td>
+          </tr>
+          <tr>
+            <td colSpan={2}>
+              <SPListItemFileAttachments Files={testFiles} onChange={(file) => this.onAddFileAttachment(file)} onRemove={(filename) => this.onRemoveFileAttachment(filename)} />
+            </td>
           </tr>
         </table>
       </div>
