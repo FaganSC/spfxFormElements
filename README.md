@@ -32,10 +32,7 @@ This package was developed to help streamline SharePoint Framework development w
 Version|Date|Comments
 -------|----|--------
 0.1.0|June 17, 2022|Initial release
-0.1.1|June 17, 2022|Fixed Missing Elements from Package
-0.1.2|June 17, 2022|Added FirstDayOfWeek, MonthPickerVisible, MinDate & MaxDate to SPDateField
-0.1.3|June 18, 2022|Bug Fixes in SPDateField & SPDropDownField
-0.1.4|June 19, 2022|Added SPMultipleLineField
+0.2.0|June 21, 2022|Added SPMultipleLineField
 
 ## References
 
