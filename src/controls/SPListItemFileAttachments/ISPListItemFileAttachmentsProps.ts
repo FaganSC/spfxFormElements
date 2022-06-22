@@ -1,6 +1,9 @@
+import { IAttachedFile } from "../../SPListItemFileAttachments";
+
 export interface ISPListItemFileAttachmentsProps {
     Label?: string;
-    Files: any[];
+    Files: IAttachedFile[];
+    DocumentType?: string;
     ClassName?: string | string[];
     ReadOnly?: boolean;
     Disabled?: boolean;

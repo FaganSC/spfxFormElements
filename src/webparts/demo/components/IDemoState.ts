@@ -1,3 +1,4 @@
+import { IAttachedFile } from "../../../SPListItemFileAttachments";
 import { IDemoModel } from "./DemoModel";
 export interface IDemoState {
     testRequired: boolean;
@@ -9,6 +10,6 @@ export interface IDemoState {
     testTipToolMsg?: string;
     
     testData: IDemoModel;
-    testFiles: any;
+    testFiles: IAttachedFile[];
   }
   

@@ -17,7 +17,7 @@ import { SPCheckBoxField } from '../../../SPCheckBoxField';
 import { DropdownMenuItemType, IDropdownOption } from '@fluentui/react/lib/Dropdown';
 import { IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup';
 import { Layout, SPChoiceField } from '../../../SPChoiceField';
-import { SPListItemFileAttachments } from '../../../SPListItemFileAttachments';
+import { IAttachedFile, SPListItemFileAttachments } from '../../../SPListItemFileAttachments';
 
 export const dropdownNumberData: IDropdownOption[] = [
   { key: -1, text: 'Fruits', itemType: DropdownMenuItemType.Header },
@@ -61,8 +61,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props) {
     super(props);
     this.onFormFieldChange = this.onFormFieldChange.bind(this);
-    this.onAddFileAttachment = this.onAddFileAttachment.bind(this);
-    this.onRemoveFileAttachment = this.onRemoveFileAttachment.bind(this);
+    this.onAttachmentChange = this.onAttachmentChange.bind(this);
     this.state = {
       testRequired: false,
       testDisabled: false,
@@ -80,23 +79,10 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
     this.setState({ testData: data });
   }
 
-  private async onAddFileAttachment(files: any[]) {
+  private async onAttachmentChange(files: IAttachedFile[]) {
     console.log(files);
-    this.setState({ testFiles: files });
+    this.setState({ testFiles: files});
   }
-
-  private async onRemoveFileAttachment(filename: string) {
-    let files = this.state.testFiles;
-    const indexOfObject = files.findIndex((object) => {
-      return object.name === filename;
-    });
-
-    if (indexOfObject !== -1) {
-      files.splice(indexOfObject, 1);
-    }
-    this.setState({testFiles: files});
-  }
-
 
   private setData(checked: boolean) {
     if (checked) {
@@ -228,7 +214,20 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td colSpan={2}>
-              <SPListItemFileAttachments Files={testFiles} onChange={(file) => this.onAddFileAttachment(file)} onRemove={(filename) => this.onRemoveFileAttachment(filename)} />
+              <SPListItemFileAttachments
+                Files={testFiles}
+                onChange={(file) => this.onAttachmentChange(file)}
+                onRemove={(file) => this.onAttachmentChange(file)} />
+            </td>
+          </tr>
+          <tr>
+            <td colSpan={2}>
+              <SPListItemFileAttachments
+                Files={testFiles}
+                Label='Legal Document Attachments'
+                //DocumentType='Legal'
+                onChange={(file) => this.onAttachmentChange(file)}
+                onRemove={(file) => this.onAttachmentChange(file)} />
             </td>
           </tr>
         </table>
