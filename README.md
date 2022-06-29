@@ -16,7 +16,6 @@ This package was developed to help streamline SharePoint Framework development w
 
 > Use with caution until documentation is posted
 
-
 ## Supporting Dependencies
 - [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/)
 - [Moment.js](https://momentjs.com/)
