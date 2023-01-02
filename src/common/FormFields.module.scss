@@ -1,0 +1,167 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.fieldContainer {
+    margin: 0 5px 5px 0;
+    .titleContainer {
+        display: flex;
+        font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        font-weight: 600;
+        box-sizing: border-box;
+        box-shadow: none;
+        margin: 0px;
+        padding: 5px 0px;
+        overflow-wrap: break-word;
+        position: relative;
+        height: 30px;
+        &.fieldIcon > .fieldIcon {
+            display: inline-block !important;
+            top: 7px;
+            position: absolute;
+        }
+        &.fieldIcon > .label {
+            left: 20px;
+        }
+        .fieldIcon {
+            align-self: center;
+            font-size: 16px;
+            color: "[theme:neutralSecondary, default: #605e5c]";
+            margin-right: 8px;
+            position: absolute;
+            display: none;
+        }
+        &.isRequired > .label:after {
+            content: " *";
+            color: red;
+        }
+        .fieldIcon & .label {
+            left: 10px;
+        }
+        .label {
+            position: absolute;
+        }
+        .tipTool {
+            position: absolute;
+            top: 0;
+            right: -8px;
+            padding: 0;
+            color: "[theme:neutralSecondary, default: #605e5c]";
+        }
+    }
+    .readOnly {
+        position: relative;
+        .lockIcon {
+            position: absolute;
+            bottom: 6px;
+            right: 8px;
+            top: auto;
+            font-size: 16px;
+            line-height: 18px;
+        }
+    }
+}
+.callout {
+    width: 320px;
+    padding: 20px 24px;
+}
+
+.spfxTextField {
+    font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    position: relative;
+    .wrapper {
+        .fieldGroup {
+            box-shadow: none;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            border: 1px solid rgb(96, 94, 92);
+            border-radius: 2px;
+            background: rgb(255, 255, 255);
+            cursor: text;
+            height: 32px;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            position: relative;
+            .prefix {
+                background: rgb(243, 242, 241);
+                color: rgb(96, 94, 92);
+                display: flex;
+                align-items: center;
+                padding: 0px 10px;
+                line-height: 1px;
+                white-space: nowrap;
+                flex-shrink: 0;
+                & > span {
+                    padding-bottom: 1px;
+                }
+            }
+            .suffix {
+                background: rgb(243, 242, 241);
+                color: rgb(96, 94, 92);
+                display: flex;
+                align-items: center;
+                padding: 0px 10px;
+                line-height: 1px;
+                white-space: nowrap;
+                flex-shrink: 0;
+                & > span {
+                    padding-bottom: 1px;
+                }
+            }
+            .field {
+                font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont,
+                    Roboto, "Helvetica Neue", sans-serif;
+                -webkit-font-smoothing: antialiased;
+                font-size: 14px;
+                font-weight: 400;
+                box-shadow: none;
+                margin: 0px;
+                padding: 0px 8px;
+                box-sizing: border-box;
+                border-radius: 0px;
+                border: none;
+                background: none transparent;
+                color: rgb(50, 49, 48);
+                width: 100%;
+                min-width: 0px;
+                text-overflow: ellipsis;
+                outline: 0px;
+            }
+        }
+    }
+}
+
+.Attachments {
+    .FilePicker {
+      display: block !important;
+    }
+    .Files {
+      .File {
+        padding: 5px;
+        .Icon {
+          margin: 0 5px 0 0;
+        }
+      }
+    }
+  }
+
+.SPChoiceHorizontal > div > div {
+    display: flex;
+    & > div {
+        padding: 0 5px;
+    }
+}
+
+.SPHorizontalLayoutReadOnly {
+    display: flex;
+}
