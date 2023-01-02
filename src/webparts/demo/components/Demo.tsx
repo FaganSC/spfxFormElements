@@ -1,43 +1,84 @@
 import * as React from 'react';
 import styles from './Demo.module.scss';
 import { IDemoProps } from './IDemoProps';
-import { escape } from '@microsoft/sp-lodash-subset';
+import { IDemoState } from './IDemoState';
+import { IDemoModel } from './DemoModel';
+import { Toggle } from '@fluentui/react/lib/components/Toggle';
+import { SPTextBox } from '../../../controls/SPTextBox';
 
-export default class Demo extends React.Component<IDemoProps, {}> {
+export default class Demo extends React.Component<IDemoProps, IDemoState> {
+  constructor(props: IDemoProps) {
+    super(props);
+    this.state = {
+      testRequired: false,
+      testDisabled: false,
+      testReadOnly: false,
+      testIcon: false,
+      testTipTool: false,
+      testDefaultData: false,
+      testData: new IDemoModel()
+    };
+  }
+
+  private _onFormFieldChange = async (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement> | React.MouseEvent<HTMLElement>, data: any, fieldName: string): Promise<void> => {
+    console.log(data);
+    console.log(event);
+    this.setState({ testData: data });
+  }
+
+  private _setData = (checked: boolean): void => {
+    if (checked) {
+      this.setState({
+        testDefaultData: checked,
+        testData: {
+          TextBox: "Plain Text Box Data",
+        }
+      });
+    } else {
+      this.setState({
+        testDefaultData: checked,
+        testData: new IDemoModel()
+      });
+    }
+  }
+
   public render(): React.ReactElement<IDemoProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
-
+    const { testData, testRequired, testDisabled, testReadOnly, testIcon, testDefaultData, testTipTool, testTipToolMsg } = this.state;
     return (
-      <section className={`${styles.demo} ${hasTeamsContext ? styles.teams : ''}`}>
-        <div className={styles.welcome}>
-          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
-          <h2>Well done, {escape(userDisplayName)}!</h2>
-          <div>{environmentMessage}</div>
-          <div>Web part property value: <strong>{escape(description)}</strong></div>
-        </div>
-        <div>
-          <h3>Welcome to SharePoint Framework!</h3>
-          <p>
-            The SharePoint Framework (SPFx) is a extensibility model for Microsoft Viva, Microsoft Teams and SharePoint. It&#39;s the easiest way to extend Microsoft 365 with automatic Single Sign On, automatic hosting and industry standard tooling.
-          </p>
-          <h4>Learn more about SPFx development:</h4>
-          <ul className={styles.links}>
-            <li><a href="https://aka.ms/spfx" target="_blank" rel="noreferrer">SharePoint Framework Overview</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-graph" target="_blank" rel="noreferrer">Use Microsoft Graph in your solution</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-teams" target="_blank" rel="noreferrer">Build for Microsoft Teams using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-viva" target="_blank" rel="noreferrer">Build for Microsoft Viva Connections using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-store" target="_blank" rel="noreferrer">Publish SharePoint Framework applications to the marketplace</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank" rel="noreferrer">SharePoint Framework API reference</a></li>
-            <li><a href="https://aka.ms/m365pnp" target="_blank" rel="noreferrer">Microsoft 365 Developer Community</a></li>
-          </ul>
-        </div>
-      </section>
+      <div className={styles.demo}>
+        <table width={"100%"}>
+          <tr>
+            <td><Toggle checked={testDefaultData} label={"Default Data?"} onText="Yes" offText="No" onChange={(event, checked) => this._setData(checked)} /></td>
+            <td><Toggle checked={testRequired} label={"Required?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testRequired: checked })} /></td>
+            <td><Toggle checked={testDisabled} label={"Disabled?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testDisabled: checked })} /></td>
+            <td><Toggle checked={testReadOnly} label={"ReadOnly?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testReadOnly: checked })} /></td>
+            <td><Toggle checked={testIcon} label={"Field Icon?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testIcon: checked })} /></td>
+            <td><Toggle checked={testTipTool} label={"TipTool?"} onText="Yes" offText="No" onChange={(event, checked) => { this.setState({ testTipTool: checked, testTipToolMsg: checked ? "Use Tip Tool to descript field" : null })}} /></td>
+          </tr>
+        </table><table width={"100%"}>
+          <tr>
+            <th>Form Elements</th>
+            <th>SharePoint Data</th>
+          </tr>
+          <tr>
+            <td>
+              <SPTextBox
+                Data={testData}
+                FieldName="TextBox"
+                Label='Text Box (Form Object Data)'
+                PlaceHolder='Enter Value for Form Data'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.TextBox}</b></td>
+          </tr>
+        </table>
+      </div>
     );
   }
 }
