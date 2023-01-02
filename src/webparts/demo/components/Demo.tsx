@@ -5,6 +5,7 @@ import { IDemoState } from './IDemoState';
 import { IDemoModel } from './DemoModel';
 import { Toggle } from '@fluentui/react/lib/components/Toggle';
 import { SPTextBox } from '../../../controls/SPTextBox';
+import { SPMultipleLine } from '../../../controls/SPMultipleLine';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -32,6 +33,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
         testDefaultData: checked,
         testData: {
           TextBox: "Plain Text Box Data",
+          MultipleLine: "Multiple Line Text Block",
         }
       });
     } else {
@@ -76,6 +78,23 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td><b>{testData.TextBox}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPMultipleLine
+                Data={testData}
+                FieldName="MultipleLine"
+                Label='Multiple Line Text Block'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+                Props={{ resizable: true }}
+              />
+            </td>
+            <td><b>{testData.MultipleLine}</b></td>
           </tr>
         </table>
       </div>
