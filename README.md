@@ -25,8 +25,9 @@ This package was developed to help streamline SharePoint Framework development w
 
 ## Version history
 
-| Version |     Date     | Comments                 |
-| :-----: | :----------: | ------------------------ |
+| Version |    Date     | Comments                |
+| :-----: | :---------: | ----------------------- |
+|  0.1.0  | Jan 1, 2023 | Added SPTextBox Control |
 
 ## References
 
