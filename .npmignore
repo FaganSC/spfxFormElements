@@ -1,0 +1,31 @@
+# Folders
+.vscode
+coverage
+node_modules
+sharepoint
+teams
+src
+temp
+config
+typings
+lib/extensions
+lib/webparts
+assets
+dist
+docs
+scripts
+.circleci
+
+# Files
+.eslintrc.js
+tslint.json
+*.csproj
+.git*
+.yo-rc.json
+.editorconfig
+gulpfile.js
+tsconfig.json
+yarn.lock
+*.tgz
+*.test.js
+*.test.js.map

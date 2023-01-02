@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "fagansc-spfx-form-elements-client-side-solution",
+    "id": "9fed0910-421d-4e74-88d8-d8b7a2251743",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.16.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "fagansc-spfx-form-elements description"
+      },
+      "longDescription": {
+        "default": "fagansc-spfx-form-elements description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "fagansc-spfx-form-elements Feature",
+        "description": "The feature that activates elements of the fagansc-spfx-form-elements solution.",
+        "id": "72420d1a-953b-494a-92fa-e540279cb3eb",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/fagansc-spfx-form-elements.sppkg"
+  }
+}

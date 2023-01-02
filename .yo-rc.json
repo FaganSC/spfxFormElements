@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.18.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.4.1"
+    },
+    "version": "1.16.1",
+    "libraryName": "fagansc-spfx-form-elements",
+    "libraryId": "9fed0910-421d-4e74-88d8-d8b7a2251743",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "fagansc-spfx-form-elements",
+    "solutionShortDescription": "fagansc-spfx-form-elements description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
