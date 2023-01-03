@@ -5,4 +5,6 @@ export class IDemoModel {
     public Toggle1: boolean = false;
     public Toggle2: boolean = false;
     public CheckBox: boolean = false;
+    public RadioVertical: string = null;
+    public RadioHorizontal: string = null;
 }

@@ -8,6 +8,22 @@ import { SPTextBox } from '../../../controls/SPTextBox';
 import { SPMultipleLine } from '../../../controls/SPMultipleLine';
 import { SPToggle } from '../../../controls/SPToggle';
 import { SPCheckBox } from '../../../controls/SPCheckBox';
+import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
+
+import { IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup';
+
+export const radioVerticalChoices: IChoiceGroupOption[] = [
+  { key: 'apple', text: 'Apple' },
+  { key: 'banana', text: 'Banana' },
+  { key: 'orange', text: 'Orange', disabled: true },
+  { key: 'grape', text: 'Grape' }
+];
+
+export const radioHorizontalChoices: IChoiceGroupOption[] = [
+  { key: 'broccoli', text: 'Broccoli' },
+  { key: 'carrot', text: 'Carrot' },
+  { key: 'lettuce', text: 'Lettuce' }
+];
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -39,6 +55,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           Toggle1: true,
           Toggle2: true,
           CheckBox: true,
+          RadioVertical: "apple",
+          RadioHorizontal: "carrot",
         }
       });
     } else {
@@ -150,6 +168,41 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td><b>{JSON.stringify(testData.CheckBox)}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPChoice
+                Data={testData}
+                FieldName="RadioVertical"
+                Label='Radio Buttons (Vertical)'
+                Choices={radioVerticalChoices}
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.RadioVertical}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPChoice
+                Data={testData}
+                FieldName="RadioHorizontal"
+                Label='Radio Buttons (Horizontal)'
+                Choices={radioHorizontalChoices}
+                Layout={SPChoiceLayout.Horizontal}
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.RadioHorizontal}</b></td>
           </tr>
         </table>
       </div>
