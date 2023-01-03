@@ -11,9 +11,9 @@
     "clean": "gulp clean",
     "test": "gulp test",
     "package": "gulp clean && gulp build --ship && gulp bundle --ship",
-    "pubpatch": "gulp clean && npm version patch --force && gulp build --ship && gulp bundle --ship && npm publish && git push",
-    "pubminor": "gulp clean && npm version minor --force && gulp build --ship && gulp bundle --ship && npm publish && git push",
-    "pubmajor": "gulp clean && npm version major --force && gulp build --ship && gulp bundle --ship && npm publish && git push"
+    "pubpatch": "gulp clean && npm version patch --force && gulp build --ship && gulp bundle --ship && npm publish && git push && git push --tags",
+    "pubminor": "gulp clean && npm version minor --force && gulp build --ship && gulp bundle --ship && npm publish && git push && git push --tags",
+    "pubmajor": "gulp clean && npm version major --force && gulp build --ship && gulp bundle --ship && npm publish && git push && git push --tags"
   },
   "dependencies": {
     "@fluentui/react": "^8.104.1",
