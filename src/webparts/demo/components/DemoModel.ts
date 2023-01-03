@@ -7,4 +7,8 @@ export class IDemoModel {
     public CheckBox: boolean = false;
     public RadioVertical: string = null;
     public RadioHorizontal: string = null;
+    public DropDownSingleString: string = null;
+    public DropDownSingleNumber: number = null;
+    public DropDownMultipleString: string[] = [];
+    public DropDownMultipleNumber: number[] = [];
 }

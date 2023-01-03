@@ -33,7 +33,7 @@ This package was developed to help streamline SharePoint Framework development w
 |  0.4.0  | Jan 2, 2023 | Added SPCheckBox Control      |
 |  0.5.0  | Jan 2, 2023 | Added SPChoice Control        |
 |  0.6.0  | Jan 2, 2023 | Updated dependencies Versions |
-
+|  0.7.0  | Jan 3, 2023 | Added SPDropdown Control      |
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)

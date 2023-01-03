@@ -3,27 +3,14 @@ import styles from './Demo.module.scss';
 import { IDemoProps } from './IDemoProps';
 import { IDemoState } from './IDemoState';
 import { IDemoModel } from './DemoModel';
+import { dropdownNumberData, dropdownStringData, radioHorizontalChoices, radioVerticalChoices } from './SampleData';
 import { Toggle } from '@fluentui/react/lib/components/Toggle';
 import { SPTextBox } from '../../../controls/SPTextBox';
 import { SPMultipleLine } from '../../../controls/SPMultipleLine';
 import { SPToggle } from '../../../controls/SPToggle';
 import { SPCheckBox } from '../../../controls/SPCheckBox';
 import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
-
-import { IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup';
-
-export const radioVerticalChoices: IChoiceGroupOption[] = [
-  { key: 'apple', text: 'Apple' },
-  { key: 'banana', text: 'Banana' },
-  { key: 'orange', text: 'Orange', disabled: true },
-  { key: 'grape', text: 'Grape' }
-];
-
-export const radioHorizontalChoices: IChoiceGroupOption[] = [
-  { key: 'broccoli', text: 'Broccoli' },
-  { key: 'carrot', text: 'Carrot' },
-  { key: 'lettuce', text: 'Lettuce' }
-];
+import { SPDropdown } from '../../../controls/SPDropdown';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -57,6 +44,10 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           CheckBox: true,
           RadioVertical: "apple",
           RadioHorizontal: "carrot",
+          DropDownSingleString: "apple",
+          DropDownSingleNumber: 5,
+          DropDownMultipleString: ["apple", "carrot"],
+          DropDownMultipleNumber: [2, 5],
         }
       });
     } else {
@@ -78,7 +69,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><Toggle checked={testDisabled} label={"Disabled?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testDisabled: checked })} /></td>
             <td><Toggle checked={testReadOnly} label={"ReadOnly?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testReadOnly: checked })} /></td>
             <td><Toggle checked={testIcon} label={"Field Icon?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testIcon: checked })} /></td>
-            <td><Toggle checked={testTipTool} label={"TipTool?"} onText="Yes" offText="No" onChange={(event, checked) => { this.setState({ testTipTool: checked, testTipToolMsg: checked ? "Use Tip Tool to descript field" : null })}} /></td>
+            <td><Toggle checked={testTipTool} label={"TipTool?"} onText="Yes" offText="No" onChange={(event, checked) => { this.setState({ testTipTool: checked, testTipToolMsg: checked ? "Use Tip Tool to descript field" : null }) }} /></td>
           </tr>
         </table><table width={"100%"}>
           <tr>
@@ -203,6 +194,68 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td><b>{testData.RadioHorizontal}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropdown
+              Data={testData}
+              FieldName="DropDownSingleString"
+              Label='DropDown Single Select (String Keys)'
+              Options={dropdownStringData}
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{testData.DropDownSingleString}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropdown
+              Data={testData}
+              FieldName="DropDownSingleNumber"
+              Label='DropDown Single Select (Number Keys)'
+              Options={dropdownNumberData}
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{testData.DropDownSingleNumber}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropdown
+              Data={testData}
+              FieldName="DropDownMultipleString"
+              Label='DropDown Multiple Select (String Keys)'
+              Options={dropdownStringData}
+              MultiSelect
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{JSON.stringify(testData.DropDownMultipleString)}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropdown
+              Data={testData}
+              FieldName="DropDownMultipleNumber"
+              Label='DropDown Multiple Select (Number Keys)'
+              Options={dropdownNumberData}
+              MultiSelect
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{JSON.stringify(testData.DropDownMultipleNumber)}</b></td>
           </tr>
         </table>
       </div>
