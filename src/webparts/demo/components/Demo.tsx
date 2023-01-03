@@ -127,7 +127,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
                 onChange={(ev: React.MouseEvent<HTMLElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
               />
             </td>
-            <td>{JSON.stringify(testData.Toggle1)}</td>
+            <td><b>{JSON.stringify(testData.Toggle1)}</b></td>
           </tr>
           <tr>
             <td>
@@ -145,7 +145,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
                 onChange={(ev: React.MouseEvent<HTMLElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
               />
             </td>
-            <td>{JSON.stringify(testData.Toggle2)}</td>
+            <td><b>{JSON.stringify(testData.Toggle2)}</b></td>
           </tr>
           <tr>
             <td>
