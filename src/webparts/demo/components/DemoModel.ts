@@ -11,4 +11,6 @@ export class IDemoModel {
     public DropDownSingleNumber: number = null;
     public DropDownMultipleString: string[] = [];
     public DropDownMultipleNumber: number[] = [];
+    public DatePicker: string = null;
+    public DatePicker2: string = null;
 }

@@ -3,3 +3,4 @@ export { ISPMultipleLineProps, SPMultipleLine } from "./SPMultipleLine";
 export { ISPToggleProps, SPToggle } from "./SPToggle";
 export { ISPCheckBoxProps, SPCheckBox } from "./SPCheckBox";
 export { ISPChoiceProps, SPChoiceLayout, SPChoice } from "./SPChoice";
+export { ISPDateTimeProps, SPDateTime } from "./SPDateTime";
