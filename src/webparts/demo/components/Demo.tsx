@@ -7,6 +7,7 @@ import { Toggle } from '@fluentui/react/lib/components/Toggle';
 import { SPTextBox } from '../../../controls/SPTextBox';
 import { SPMultipleLine } from '../../../controls/SPMultipleLine';
 import { SPToggle } from '../../../controls/SPToggle';
+import { SPCheckBox } from '../../../controls/SPCheckBox';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -37,6 +38,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           MultipleLine: "Multiple Line Text Block",
           Toggle1: true,
           Toggle2: true,
+          CheckBox: true,
         }
       });
     } else {
@@ -132,6 +134,22 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td>{JSON.stringify(testData.Toggle2)}</td>
+          </tr>
+          <tr>
+            <td>
+              <SPCheckBox
+                Data={testData}
+                FieldName="CheckBox"
+                Label='Checkbox'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{JSON.stringify(testData.CheckBox)}</b></td>
           </tr>
         </table>
       </div>

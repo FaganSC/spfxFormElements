@@ -30,6 +30,7 @@ This package was developed to help streamline SharePoint Framework development w
 |  0.1.0  | Jan 1, 2023 | Added SPTextBox Control      |
 |  0.2.0  | Jan 1, 2023 | Added SPMultipleLine Control |
 |  0.3.0  | Jan 2, 2023 | Added SPToggle Control       |
+|  0.4.0  | Jan 2, 2023 | Added SPCheckBox Control     |
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
