@@ -9,7 +9,7 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=FaganSC_spfxFormElements&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=FaganSC_spfxFormElements)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=FaganSC_spfxFormElements&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=FaganSC_spfxFormElements)
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=FaganSC_spfxFormElements)
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/project/overview?id=FaganSC_spfxFormElements)
 
 ## Summary
 This package was developed to help streamline SharePoint Framework development when building forms within SharePoint Online. This package is in active development and more information and documentation to come as the package is continually being updated, as new needs/requirements are found.
