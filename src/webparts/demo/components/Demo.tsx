@@ -3,13 +3,14 @@ import styles from './Demo.module.scss';
 import { IDemoProps } from './IDemoProps';
 import { IDemoState } from './IDemoState';
 import { IDemoModel } from './DemoModel';
-import { radioHorizontalChoices, radioVerticalChoices } from './SampleData';
+import { dropdownNumberData, dropdownStringData, radioHorizontalChoices, radioVerticalChoices } from './SampleData';
 import { Toggle } from '@fluentui/react/lib/components/Toggle';
 import { SPTextBox } from '../../../controls/SPTextBox';
 import { SPMultipleLine } from '../../../controls/SPMultipleLine';
 import { SPToggle } from '../../../controls/SPToggle';
 import { SPCheckBox } from '../../../controls/SPCheckBox';
 import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
+import { SPDropdown } from '../../../controls/SPDropdown';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -193,6 +194,68 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td><b>{testData.RadioHorizontal}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropdown
+              Data={testData}
+              FieldName="DropDownSingleString"
+              Label='DropDown Single Select (String Keys)'
+              Options={dropdownStringData}
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{testData.DropDownSingleString}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropdown
+              Data={testData}
+              FieldName="DropDownSingleNumber"
+              Label='DropDown Single Select (Number Keys)'
+              Options={dropdownNumberData}
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{testData.DropDownSingleNumber}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropdown
+              Data={testData}
+              FieldName="DropDownMultipleString"
+              Label='DropDown Multiple Select (String Keys)'
+              Options={dropdownStringData}
+              MultiSelect
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{JSON.stringify(testData.DropDownMultipleString)}</b></td>
+          </tr>
+          <tr>
+            <td><SPDropdown
+              Data={testData}
+              FieldName="DropDownMultipleNumber"
+              Label='DropDown Multiple Select (Number Keys)'
+              Options={dropdownNumberData}
+              MultiSelect
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{JSON.stringify(testData.DropDownMultipleNumber)}</b></td>
           </tr>
         </table>
       </div>
