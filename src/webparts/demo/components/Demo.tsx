@@ -3,27 +3,13 @@ import styles from './Demo.module.scss';
 import { IDemoProps } from './IDemoProps';
 import { IDemoState } from './IDemoState';
 import { IDemoModel } from './DemoModel';
+import { radioHorizontalChoices, radioVerticalChoices } from './SampleData';
 import { Toggle } from '@fluentui/react/lib/components/Toggle';
 import { SPTextBox } from '../../../controls/SPTextBox';
 import { SPMultipleLine } from '../../../controls/SPMultipleLine';
 import { SPToggle } from '../../../controls/SPToggle';
 import { SPCheckBox } from '../../../controls/SPCheckBox';
 import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
-
-import { IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup';
-
-export const radioVerticalChoices: IChoiceGroupOption[] = [
-  { key: 'apple', text: 'Apple' },
-  { key: 'banana', text: 'Banana' },
-  { key: 'orange', text: 'Orange', disabled: true },
-  { key: 'grape', text: 'Grape' }
-];
-
-export const radioHorizontalChoices: IChoiceGroupOption[] = [
-  { key: 'broccoli', text: 'Broccoli' },
-  { key: 'carrot', text: 'Carrot' },
-  { key: 'lettuce', text: 'Lettuce' }
-];
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -57,6 +43,10 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           CheckBox: true,
           RadioVertical: "apple",
           RadioHorizontal: "carrot",
+          DropDownSingleString: "apple",
+          DropDownSingleNumber: 5,
+          DropDownMultipleString: ["apple", "carrot"],
+          DropDownMultipleNumber: [2, 5],
         }
       });
     } else {
@@ -78,7 +68,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><Toggle checked={testDisabled} label={"Disabled?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testDisabled: checked })} /></td>
             <td><Toggle checked={testReadOnly} label={"ReadOnly?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testReadOnly: checked })} /></td>
             <td><Toggle checked={testIcon} label={"Field Icon?"} onText="Yes" offText="No" onChange={(event, checked) => this.setState({ testIcon: checked })} /></td>
-            <td><Toggle checked={testTipTool} label={"TipTool?"} onText="Yes" offText="No" onChange={(event, checked) => { this.setState({ testTipTool: checked, testTipToolMsg: checked ? "Use Tip Tool to descript field" : null })}} /></td>
+            <td><Toggle checked={testTipTool} label={"TipTool?"} onText="Yes" offText="No" onChange={(event, checked) => { this.setState({ testTipTool: checked, testTipToolMsg: checked ? "Use Tip Tool to descript field" : null }) }} /></td>
           </tr>
         </table><table width={"100%"}>
           <tr>
