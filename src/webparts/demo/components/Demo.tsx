@@ -11,6 +11,7 @@ import { SPToggle } from '../../../controls/SPToggle';
 import { SPCheckBox } from '../../../controls/SPCheckBox';
 import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
 import { SPDropdown } from '../../../controls/SPDropdown';
+import { SPDateTime } from '../../../controls/SPDateTime';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -48,6 +49,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           DropDownSingleNumber: 5,
           DropDownMultipleString: ["apple", "carrot"],
           DropDownMultipleNumber: [2, 5],
+          DatePicker: "2022-05-01T00:00:00Z",
+          DatePicker2: "2022-06-01T00:00:00Z",
         }
       });
     } else {
@@ -256,6 +259,35 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
             </td>
             <td><b>{JSON.stringify(testData.DropDownMultipleNumber)}</b></td>
+          </tr>
+          <tr>
+            <td><SPDateTime
+              Data={testData}
+              FieldName="DatePicker"
+              Label='Date Picker (ddd MMM DD YYYY)'
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{testData.DatePicker}</b></td>
+          </tr>
+          <tr>
+            <td><SPDateTime
+              Data={testData}
+              FieldName="DatePicker2"
+              Label='Date Picker (YYYY-MM-DD)'
+              DateFormat='YYYY-MM-DD'
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+            </td>
+            <td><b>{testData.DatePicker2}</b></td>
           </tr>
         </table>
       </div>
