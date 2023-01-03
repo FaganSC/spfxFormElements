@@ -6,6 +6,7 @@ import { IDemoModel } from './DemoModel';
 import { Toggle } from '@fluentui/react/lib/components/Toggle';
 import { SPTextBox } from '../../../controls/SPTextBox';
 import { SPMultipleLine } from '../../../controls/SPMultipleLine';
+import { SPToggle } from '../../../controls/SPToggle';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -34,6 +35,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
         testData: {
           TextBox: "Plain Text Box Data",
           MultipleLine: "Multiple Line Text Block",
+          Toggle1: true,
+          Toggle2: true,
         }
       });
     } else {
@@ -95,6 +98,40 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td><b>{testData.MultipleLine}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPToggle
+                Data={testData}
+                FieldName="Toggle1"
+                Label='Toggle 1'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.MouseEvent<HTMLElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td>{JSON.stringify(testData.Toggle1)}</td>
+          </tr>
+          <tr>
+            <td>
+              <SPToggle
+                Data={testData}
+                FieldName="Toggle2"
+                Label='Toggle 2'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                OffText={"No"}
+                OnText={"Yes"}
+                onChange={(ev: React.MouseEvent<HTMLElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td>{JSON.stringify(testData.Toggle2)}</td>
           </tr>
         </table>
       </div>
