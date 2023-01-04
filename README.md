@@ -35,6 +35,7 @@ This package was developed to help streamline SharePoint Framework development w
 |  0.6.0  | Jan 2, 2023 | Updated dependencies Versions |
 |  0.7.0  | Jan 3, 2023 | Added SPDropdown Control      |
 |  0.8.0  | Jan 3, 2023 | Added SPDateTime Control      |
+|  0.9.0  | Jan 4, 2023 | Added SPNumberField Control   |
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
