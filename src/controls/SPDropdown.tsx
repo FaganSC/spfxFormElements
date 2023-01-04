@@ -76,7 +76,6 @@ export const SPDropdown: React.FunctionComponent<ISPDropdownProps> = React.forwa
                 selectedKeyValue = selectedKeys;
             }
             readyOnlyValue = _fieldActions.isReadOnly() && selectedKeys && props.Options.filter((item => item.key === selectedKeyValue))[0].text;
-            console.log(selectedKeyValue);
         }
         return (
             <div className={styles.fieldContainer}>
