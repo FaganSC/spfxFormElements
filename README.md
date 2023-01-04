@@ -18,7 +18,8 @@ This package was developed to help streamline SharePoint Framework development w
 
 ## Supporting Dependencies
 - [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/)
-
+- [Moment.js](https://momentjs.com/)
+- [React Number Format](https://github.com/s-yadav/react-number-format)
 ## Requirements
 
 > SharePoint Framework v 1.16.1 or greater is required. Older versions and beta versions of SharePoint Framework have not been tested with this package.
