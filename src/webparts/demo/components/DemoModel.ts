@@ -5,6 +5,7 @@ export class IDemoModel {
     public WholeNumber: number = null;
     public DecimalNumber: number = null;
     public DecimalNumberTwo: number = null;
+    public USDCurrency: string = null;
     public Toggle1: boolean = false;
     public Toggle2: boolean = false;
     public CheckBox: boolean = false;

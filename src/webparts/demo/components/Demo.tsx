@@ -13,6 +13,7 @@ import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
 import { SPDropdown } from '../../../controls/SPDropdown';
 import { SPDateTime } from '../../../controls/SPDateTime';
 import { SPNumberField } from '../../../controls/SPNumberField';
+import { SPCurrencyField } from '../../../controls';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -44,6 +45,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           WholeNumber: 1000,
           DecimalNumber: 10.5015,
           DecimalNumberTwo: 10.50,
+          USDCurrency: "100000.00",
           Toggle1: true,
           Toggle2: true,
           CheckBox: true,
@@ -165,6 +167,22 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             />
             </td>
             <td><b>{testData.DecimalNumberTwo}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPCurrencyField
+                Data={testData}
+                FieldName="USDCurrency"
+                Label='USD Currency'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.USDCurrency}</b></td>
           </tr>
           <tr>
             <td>
