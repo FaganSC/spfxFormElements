@@ -15,6 +15,7 @@ import { SPDateTime } from '../../../controls/SPDateTime';
 import { SPNumberField } from '../../../controls/SPNumberField';
 import { SPCurrencyField } from '../../../controls/SPCurrencyField';
 import { SPPercentageField } from '../../../controls/SPPercentageField';
+import { SPPhoneNumber } from '../../../controls/SPPhoneNumber';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -43,6 +44,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
         testData: {
           TextBox: "Plain Text Box Data",
           MultipleLine: "Multiple Line Text Block",
+          PhoneNumber: "(123) 456-7890",
           WholeNumber: 1000,
           DecimalNumber: 10.5015,
           DecimalNumberTwo: 10.50,
@@ -121,6 +123,22 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td><b>{testData.MultipleLine}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPPhoneNumber
+                Data={testData}
+                FieldName="PhoneNumber"
+                Label='Phone Number'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.PhoneNumber}</b></td>
           </tr>
           <tr>
             <td>

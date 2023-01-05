@@ -7,3 +7,4 @@ export { ISPDateTimeProps, SPDateTime } from "./SPDateTime";
 export { ISPNumberFieldProps, SPNumberField } from "./SPNumberField";
 export { ISPCurrencyFieldProps, SPCurrencyField } from "./SPCurrencyField";
 export { ISPPercentageFieldProps, SPPercentageField } from "./SPPercentageField";
+export { ISPPhoneNumberProps, SPPhoneNumber } from "./SPPhoneNumber";

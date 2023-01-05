@@ -2,6 +2,7 @@
 export class IDemoModel {
     public TextBox: string = null;
     public MultipleLine: string = null;
+    public PhoneNumber: string = null;
     public WholeNumber: number = null;
     public DecimalNumber: number = null;
     public DecimalNumberTwo: number = null;
