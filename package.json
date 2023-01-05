@@ -1,6 +1,6 @@
 {
   "name": "fagansc-spfx-form-elements",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "private": false,
   "engines": {
     "node": ">=16.13.0 <17.0.0"
