@@ -84,7 +84,7 @@ export const SPCurrencyField: React.FunctionComponent<ISPCurrencyFieldProps> = R
                     Required={_fieldActions.isRequired()}
                     UseIcon={_fieldActions.hasIcon()}
                     TipTool={_fieldActions.hasTipTool()}
-                    IconName="NumberField"
+                    IconName="Money"
                 />
                 <div className={styles.spfxTextField}>
                     <div className={styles.wrapper}>

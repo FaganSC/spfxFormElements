@@ -85,7 +85,7 @@ export const SPPercentageField: React.FunctionComponent<ISPPercentageFieldProps>
                     Required={_fieldActions.isRequired()}
                     UseIcon={_fieldActions.hasIcon()}
                     TipTool={_fieldActions.hasTipTool()}
-                    IconName="NumberField"
+                    IconName="CalculatorPercentage"
                 />
                 <div className={styles.spfxTextField}>
                     <div className={styles.wrapper}>
