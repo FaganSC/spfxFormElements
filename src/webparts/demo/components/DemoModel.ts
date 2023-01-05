@@ -6,6 +6,8 @@ export class IDemoModel {
     public DecimalNumber: number = null;
     public DecimalNumberTwo: number = null;
     public USDCurrency: string = null;
+    public Percentage: number = null;
+    public PercentageDecimal: number = null;
     public Toggle1: boolean = false;
     public Toggle2: boolean = false;
     public CheckBox: boolean = false;

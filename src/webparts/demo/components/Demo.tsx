@@ -13,7 +13,8 @@ import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
 import { SPDropdown } from '../../../controls/SPDropdown';
 import { SPDateTime } from '../../../controls/SPDateTime';
 import { SPNumberField } from '../../../controls/SPNumberField';
-import { SPCurrencyField } from '../../../controls';
+import { SPCurrencyField } from '../../../controls/SPCurrencyField';
+import { SPPercentageField } from '../../../controls/SPPercentageField';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -46,6 +47,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           DecimalNumber: 10.5015,
           DecimalNumberTwo: 10.50,
           USDCurrency: "100000.00",
+          Percentage: .5,
+          PercentageDecimal: .055,
           Toggle1: true,
           Toggle2: true,
           CheckBox: true,
@@ -183,6 +186,40 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td><b>{testData.USDCurrency}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPPercentageField
+                Data={testData}
+                FieldName="Percentage"
+                Label='Percentage'
+                DecimalScale={0}
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.Percentage}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPPercentageField
+                Data={testData}
+                FieldName="PercentageDecimal"
+                Label='Percentage (2 Decimals)'
+                DecimalScale={2}
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.PercentageDecimal}</b></td>
           </tr>
           <tr>
             <td>
