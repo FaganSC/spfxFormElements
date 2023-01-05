@@ -83,9 +83,9 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            border: 1px solid rgb(96, 94, 92);
+            border: 1px solid;
             border-radius: 2px;
-            background: rgb(255, 255, 255);
+            background: transparent;
             cursor: text;
             height: 32px;
             display: flex;
@@ -131,7 +131,7 @@
                 border-radius: 0px;
                 border: none;
                 background: none transparent;
-                color: rgb(50, 49, 48);
+                color: inherit;
                 width: 100%;
                 min-width: 0px;
                 text-overflow: ellipsis;

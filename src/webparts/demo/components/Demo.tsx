@@ -12,6 +12,10 @@ import { SPCheckBox } from '../../../controls/SPCheckBox';
 import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
 import { SPDropdown } from '../../../controls/SPDropdown';
 import { SPDateTime } from '../../../controls/SPDateTime';
+import { SPNumberField } from '../../../controls/SPNumberField';
+import { SPCurrencyField } from '../../../controls/SPCurrencyField';
+import { SPPercentageField } from '../../../controls/SPPercentageField';
+import { SPPhoneNumber } from '../../../controls/SPPhoneNumber';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -40,6 +44,13 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
         testData: {
           TextBox: "Plain Text Box Data",
           MultipleLine: "Multiple Line Text Block",
+          PhoneNumber: "(123) 456-7890",
+          WholeNumber: 1000,
+          DecimalNumber: 10.5015,
+          DecimalNumberTwo: 10.50,
+          USDCurrency: "100000.00",
+          Percentage: .5,
+          PercentageDecimal: .055,
           Toggle1: true,
           Toggle2: true,
           CheckBox: true,
@@ -112,6 +123,121 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               />
             </td>
             <td><b>{testData.MultipleLine}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPPhoneNumber
+                Data={testData}
+                FieldName="PhoneNumber"
+                Label='Phone Number'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.PhoneNumber}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPNumberField
+                Data={testData}
+                FieldName="WholeNumber"
+                Label='Whole Numbers'
+                DecimalScale={0}
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.WholeNumber}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPNumberField
+                Data={testData}
+                FieldName="DecimalNumber"
+                Label='Decimal Numbers (No Limit)'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.DecimalNumber}</b></td>
+          </tr>
+          <tr>
+            <td><SPNumberField
+              Data={testData}
+              FieldName="DecimalNumberTwo"
+              Label='Decimal Numbers (Two)'
+              DecimalScale={2}
+              Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+            />
+            </td>
+            <td><b>{testData.DecimalNumberTwo}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPCurrencyField
+                Data={testData}
+                FieldName="USDCurrency"
+                Label='USD Currency'
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.USDCurrency}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPPercentageField
+                Data={testData}
+                FieldName="Percentage"
+                Label='Percentage'
+                DecimalScale={0}
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.Percentage}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPPercentageField
+                Data={testData}
+                FieldName="PercentageDecimal"
+                Label='Percentage (2 Decimals)'
+                DecimalScale={2}
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{testData.PercentageDecimal}</b></td>
           </tr>
           <tr>
             <td>
