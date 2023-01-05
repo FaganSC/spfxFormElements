@@ -1,6 +1,9 @@
 # SFPX Form Elements
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/fagansc-spfx-form-elements.svg)](https://badge.fury.io/js/fagansc-spfx-form-elements)
+![License: MIT](https://img.shields.io/npm/l/fagansc-spfx-form-elements?style=for-the-badge)
+![NPM Package](https://img.shields.io/npm/v/fagansc-spfx-form-elements?style=for-the-badge)
+![NPM Downloads](https://img.shields.io/npm/dw/fagansc-spfx-form-elements?color=blue&style=for-the-badge)
+![GitHub issues by-label](https://img.shields.io/github/issues-raw/FaganSC/spfxFormElements/enhancement?label=Open%20Enhancements&style=for-the-badge)
+![GitHub issues by-label](https://img.shields.io/github/issues-raw/FaganSC/spfxFormElements/bug?label=Open%20Bugs&style=for-the-badge)
 
 [![NPM](https://nodei.co/npm/fagansc-spfx-form-elements.png?mini=true)](https://npmjs.org/package/fagansc-spfx-form-elements)
 
