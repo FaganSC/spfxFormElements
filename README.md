@@ -39,6 +39,7 @@ This package was developed to help streamline SharePoint Framework development w
 |  0.9.0  | Jan 4, 2023 | Added SPNumberField Control     |
 | 0.10.0  | Jan 4, 2023 | Added SPCurrencyField Control   |
 | 0.11.0  | Jan 4, 2023 | Added SPPercentageField Control |
+| 0.12.0  | Jan 4, 2023 | Added SPPhoneNumber Control     |
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
