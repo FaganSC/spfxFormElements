@@ -23,26 +23,28 @@ This package was developed to help streamline SharePoint Framework development w
 - [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/)
 - [Moment.js](https://momentjs.com/)
 - [React Number Format](https://github.com/s-yadav/react-number-format)
+- [Use File Picker](https://github.com/Jaaneek/useFilePicker)
 ## Requirements
 
 > SharePoint Framework v 1.16.1 or greater is required. Older versions and beta versions of SharePoint Framework have not been tested with this package.
 
 ## Version history
 
-| Version |    Date     | Comments                        |
-| :-----: | :---------: | ------------------------------- |
-|  0.1.0  | Jan 1, 2023 | Added SPTextBox Control         |
-|  0.2.0  | Jan 1, 2023 | Added SPMultipleLine Control    |
-|  0.3.0  | Jan 2, 2023 | Added SPToggle Control          |
-|  0.4.0  | Jan 2, 2023 | Added SPCheckBox Control        |
-|  0.5.0  | Jan 2, 2023 | Added SPChoice Control          |
-|  0.6.0  | Jan 2, 2023 | Updated dependencies Versions   |
-|  0.7.0  | Jan 3, 2023 | Added SPDropdown Control        |
-|  0.8.0  | Jan 3, 2023 | Added SPDateTime Control        |
-|  0.9.0  | Jan 4, 2023 | Added SPNumberField Control     |
-| 0.10.0  | Jan 4, 2023 | Added SPCurrencyField Control   |
-| 0.11.0  | Jan 4, 2023 | Added SPPercentageField Control |
-| 0.12.0  | Jan 4, 2023 | Added SPPhoneNumber Control     |
+| Version |    Date     | Comments                                |
+| :-----: | :---------: | --------------------------------------- |
+|  0.1.0  | Jan 1, 2023 | Added SPTextBox Control                 |
+|  0.2.0  | Jan 1, 2023 | Added SPMultipleLine Control            |
+|  0.3.0  | Jan 2, 2023 | Added SPToggle Control                  |
+|  0.4.0  | Jan 2, 2023 | Added SPCheckBox Control                |
+|  0.5.0  | Jan 2, 2023 | Added SPChoice Control                  |
+|  0.6.0  | Jan 2, 2023 | Updated dependencies Versions           |
+|  0.7.0  | Jan 3, 2023 | Added SPDropdown Control                |
+|  0.8.0  | Jan 3, 2023 | Added SPDateTime Control                |
+|  0.9.0  | Jan 4, 2023 | Added SPNumberField Control             |
+| 0.10.0  | Jan 4, 2023 | Added SPCurrencyField Control           |
+| 0.11.0  | Jan 4, 2023 | Added SPPercentageField Control         |
+| 0.12.0  | Jan 4, 2023 | Added SPPhoneNumber Control             |
+| 0.13.0  |     TBD     | Added SPListItemFileAttachments Control |
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
