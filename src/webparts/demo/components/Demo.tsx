@@ -16,6 +16,7 @@ import { SPNumberField } from '../../../controls/SPNumberField';
 import { SPCurrencyField } from '../../../controls/SPCurrencyField';
 import { SPPercentageField } from '../../../controls/SPPercentageField';
 import { SPPhoneNumber } from '../../../controls/SPPhoneNumber';
+import { SPAttachment } from '../../../controls/SPAttachment';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -414,6 +415,21 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
             </td>
             <td><b>{testData.DatePicker2}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPAttachment
+                Label='File Attachments'
+                Files={[]}
+              /*Required={testRequired}
+              Disabled={testDisabled}
+              ReadOnly={testReadOnly}
+              UseIcon={testIcon}
+              TipTool={testTipToolMsg}
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              */ />
+            </td>
+            <td>test</td>
           </tr>
         </table>
       </div>
