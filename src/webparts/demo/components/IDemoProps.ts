@@ -4,4 +4,5 @@ export interface IDemoProps {
   environmentMessage: string;
   hasTeamsContext: boolean;
   userDisplayName: string;
+  webpartContext: any;
 }
