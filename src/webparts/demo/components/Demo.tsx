@@ -16,6 +16,7 @@ import { SPNumberField } from '../../../controls/SPNumberField';
 import { SPCurrencyField } from '../../../controls/SPCurrencyField';
 import { SPPercentageField } from '../../../controls/SPPercentageField';
 import { SPPhoneNumber } from '../../../controls/SPPhoneNumber';
+import { SPPeoplePicker } from '../../../controls/SPPeoplePicker';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -62,6 +63,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           DropDownMultipleNumber: [2, 5],
           DatePicker: "2022-05-01T00:00:00Z",
           DatePicker2: "2022-06-01T00:00:00Z",
+          PeoplePickerSPUser: ["shawn@fagan.cloud"]
         }
       });
     } else {
@@ -335,7 +337,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               ReadOnly={testReadOnly}
               UseIcon={testIcon}
               TipTool={testTipToolMsg}
-              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+            />
             </td>
             <td><b>{testData.DropDownSingleString}</b></td>
           </tr>
@@ -350,7 +353,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               ReadOnly={testReadOnly}
               UseIcon={testIcon}
               TipTool={testTipToolMsg}
-              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+            />
             </td>
             <td><b>{testData.DropDownSingleNumber}</b></td>
           </tr>
@@ -366,7 +370,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               ReadOnly={testReadOnly}
               UseIcon={testIcon}
               TipTool={testTipToolMsg}
-              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+            />
             </td>
             <td><b>{JSON.stringify(testData.DropDownMultipleString)}</b></td>
           </tr>
@@ -382,7 +387,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               ReadOnly={testReadOnly}
               UseIcon={testIcon}
               TipTool={testTipToolMsg}
-              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+            />
             </td>
             <td><b>{JSON.stringify(testData.DropDownMultipleNumber)}</b></td>
           </tr>
@@ -396,7 +402,8 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               ReadOnly={testReadOnly}
               UseIcon={testIcon}
               TipTool={testTipToolMsg}
-              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+            />
             </td>
             <td><b>{testData.DatePicker}</b></td>
           </tr>
@@ -411,9 +418,27 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
               ReadOnly={testReadOnly}
               UseIcon={testIcon}
               TipTool={testTipToolMsg}
-              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)} />
+              onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+            />
             </td>
             <td><b>{testData.DatePicker2}</b></td>
+          </tr>
+          <tr>
+            <td>
+              <SPPeoplePicker
+                Context={this.props.webpartContext}
+                Data={testData}
+                Label="People Picker (User)"
+                FieldName="PeoplePickerSPUser"
+                Required={testRequired}
+                Disabled={testDisabled}
+                ReadOnly={testReadOnly}
+                UseIcon={testIcon}
+                TipTool={testTipToolMsg}
+                onChange={(ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, dataObj: any, fieldName: string) => this._onFormFieldChange(ev, dataObj, fieldName)}
+              />
+            </td>
+            <td><b>{JSON.stringify(testData.PeoplePickerSPUser)}</b></td>
           </tr>
         </table>
       </div>
