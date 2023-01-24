@@ -29,21 +29,23 @@ This package was developed to help streamline SharePoint Framework development w
 
 ## Version history
 
-| Version |     Date     | Comments                        |
-| :-----: | :----------: | ------------------------------- |
-|  0.1.0  | Jan 1, 2023  | Added SPTextBox Control         |
-|  0.2.0  | Jan 1, 2023  | Added SPMultipleLine Control    |
-|  0.3.0  | Jan 2, 2023  | Added SPToggle Control          |
-|  0.4.0  | Jan 2, 2023  | Added SPCheckBox Control        |
-|  0.5.0  | Jan 2, 2023  | Added SPChoice Control          |
-|  0.6.0  | Jan 2, 2023  | Updated dependencies Versions   |
-|  0.7.0  | Jan 3, 2023  | Added SPDropdown Control        |
-|  0.8.0  | Jan 3, 2023  | Added SPDateTime Control        |
-|  0.9.0  | Jan 4, 2023  | Added SPNumberField Control     |
-| 0.10.0  | Jan 4, 2023  | Added SPCurrencyField Control   |
-| 0.11.0  | Jan 4, 2023  | Added SPPercentageField Control |
-| 0.12.0  | Jan 4, 2023  | Added SPPhoneNumber Control     |
-| 0.13.0  | Jan 16, 2023 | Updated dependencies Versions   |
+| Version |     Date     | Comments                                                       |
+| :-----: | :----------: | -------------------------------------------------------------- |
+|  0.1.0  | Jan 1, 2023  | Added SPTextBox Control                                        |
+|  0.2.0  | Jan 1, 2023  | Added SPMultipleLine Control                                   |
+|  0.3.0  | Jan 2, 2023  | Added SPToggle Control                                         |
+|  0.4.0  | Jan 2, 2023  | Added SPCheckBox Control                                       |
+|  0.5.0  | Jan 2, 2023  | Added SPChoice Control                                         |
+|  0.6.0  | Jan 2, 2023  | Updated dependencies Versions                                  |
+|  0.7.0  | Jan 3, 2023  | Added SPDropdown Control                                       |
+|  0.8.0  | Jan 3, 2023  | Added SPDateTime Control                                       |
+|  0.9.0  | Jan 4, 2023  | Added SPNumberField Control                                    |
+| 0.10.0  | Jan 4, 2023  | Added SPCurrencyField Control                                  |
+| 0.11.0  | Jan 4, 2023  | Added SPPercentageField Control                                |
+| 0.12.0  | Jan 4, 2023  | Added SPPhoneNumber Control                                    |
+| 0.13.0  | Jan 16, 2023 | Updated dependencies Versions                                  |
+| 0.14.0  | Jan 24, 2023 | Added SPPeoplePicker Control<br />pdated dependencies Versions |
+
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
