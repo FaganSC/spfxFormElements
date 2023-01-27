@@ -1,1 +1,12 @@
-// A file is required to be in the root of the /src directory by the TypeScript compiler
+export { ISPFxTextBoxProps, SPFxTextBox } from "../src/controls/SPFxTextBox";
+export { ISPFxMultipleLineProps, SPFxMultipleLine } from "../src/controls/SPFxMultipleLine";
+export { ISPFxToggleProps, SPFxToggle } from "../src/controls/SPFxToggle";
+export { ISPFxCheckBoxProps, SPFxCheckBox } from "../src/controls/SPFxCheckBox";
+export { ISPFxChoiceProps, SPFxChoiceLayout, SPFxChoice } from "../src/controls/SPFxChoice";
+export { ISPFxDateTimeProps, SPFxDateTime } from "../src/controls/SPFxDateTime";
+export { ISPFxNumberFieldProps, SPFxNumberField } from "../src/controls/SPFxNumberField";
+export { ISPFxCurrencyFieldProps, SPFxCurrencyField } from "../src/controls/SPFxCurrencyField";
+export { ISPFxPercentageFieldProps, SPFxPercentageField } from "../src/controls/SPFxPercentageField";
+export { ISPFxPhoneNumberProps, SPFxPhoneNumber } from "../src/controls/SPFxPhoneNumber";
+export { ISPFxPeoplePickerProps, SPUser, SPFxPeoplePicker } from "../src/controls/SPFxPeoplePicker";
+export { ISPFxDropdownProps, SPFxDropdown } from "../src/controls/SPFxDropdown";

@@ -12,7 +12,7 @@ export class SPUser {
     Email: string;
 }
 
-export interface ISPPeoplePickerProps {
+export interface ISPFxPeoplePickerProps {
     Context: any;
     Label?: string;
     Value?: string;
@@ -32,7 +32,7 @@ export interface ISPPeoplePickerProps {
     Props?: ITextFieldProps;
 }
 
-export const SPPeoplePicker: React.FunctionComponent<ISPPeoplePickerProps> = React.forwardRef<HTMLElement, ISPPeoplePickerProps>(
+export const SPFxPeoplePicker: React.FunctionComponent<ISPFxPeoplePickerProps> = React.forwardRef<HTMLElement, ISPFxPeoplePickerProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [Value, setValue] = useState(_handleDataFormat);

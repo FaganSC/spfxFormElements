@@ -7,7 +7,7 @@ import { NumberFormatValues, NumericFormat } from 'react-number-format';
 import { mergeStyles } from '@fluentui/react/lib/Styling';
 import { Icon } from '@fluentui/react/lib/Icon';
 
-export interface ISPCurrencyFieldProps {
+export interface ISPFxCurrencyFieldProps {
     Label?: string;
     Value?: string;
     Data?: any;
@@ -23,7 +23,7 @@ export interface ISPCurrencyFieldProps {
     Props?: ITextFieldProps;
 }
 
-export const SPCurrencyField: React.FunctionComponent<ISPCurrencyFieldProps> = React.forwardRef<HTMLElement, ISPCurrencyFieldProps>(
+export const SPFxCurrencyField: React.FunctionComponent<ISPFxCurrencyFieldProps> = React.forwardRef<HTMLElement, ISPFxCurrencyFieldProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [Value, setValue] = useState(_handleDataFormat);

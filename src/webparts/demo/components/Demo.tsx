@@ -5,18 +5,18 @@ import { IDemoState } from './IDemoState';
 import { IDemoModel } from './DemoModel';
 import { dropdownNumberData, dropdownStringData, radioHorizontalChoices, radioVerticalChoices } from './SampleData';
 import { Toggle } from '@fluentui/react/lib/components/Toggle';
-import { SPTextBox } from '../../../controls/SPTextBox';
-import { SPMultipleLine } from '../../../controls/SPMultipleLine';
-import { SPToggle } from '../../../controls/SPToggle';
-import { SPCheckBox } from '../../../controls/SPCheckBox';
-import { SPChoice, SPChoiceLayout } from '../../../controls/SPChoice';
-import { SPDropdown } from '../../../controls/SPDropdown';
-import { SPDateTime } from '../../../controls/SPDateTime';
-import { SPNumberField } from '../../../controls/SPNumberField';
-import { SPCurrencyField } from '../../../controls/SPCurrencyField';
-import { SPPercentageField } from '../../../controls/SPPercentageField';
-import { SPPhoneNumber } from '../../../controls/SPPhoneNumber';
-import { SPPeoplePicker } from '../../../controls/SPPeoplePicker';
+import { SPFxTextBox } from '../../../controls/SPFxTextBox';
+import { SPFxMultipleLine } from '../../../controls/SPFxMultipleLine';
+import { SPFxToggle } from '../../../controls/SPFxToggle';
+import { SPFxCheckBox } from '../../../controls/SPFxCheckBox';
+import { SPFxChoice, SPFxChoiceLayout } from '../../../controls/SPFxChoice';
+import { SPFxDropdown } from '../../../controls/SPFxDropdown';
+import { SPFxDateTime } from '../../../controls/SPFxDateTime';
+import { SPFxNumberField } from '../../../controls/SPFxNumberField';
+import { SPFxCurrencyField } from '../../../controls/SPFxCurrencyField';
+import { SPFxPercentageField } from '../../../controls/SPFxPercentageField';
+import { SPFxPhoneNumber } from '../../../controls/SPFxPhoneNumber';
+import { SPFxPeoplePicker } from '../../../controls/SPFxPeoplePicker';
 
 export default class Demo extends React.Component<IDemoProps, IDemoState> {
   constructor(props: IDemoProps) {
@@ -94,7 +94,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPTextBox
+              <SPFxTextBox
                 Data={testData}
                 FieldName="TextBox"
                 Label='Text Box (Form Object Data)'
@@ -111,7 +111,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPMultipleLine
+              <SPFxMultipleLine
                 Data={testData}
                 FieldName="MultipleLine"
                 Label='Multiple Line Text Block'
@@ -128,7 +128,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPPhoneNumber
+              <SPFxPhoneNumber
                 Data={testData}
                 FieldName="PhoneNumber"
                 Label='Phone Number'
@@ -144,7 +144,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPNumberField
+              <SPFxNumberField
                 Data={testData}
                 FieldName="WholeNumber"
                 Label='Whole Numbers'
@@ -161,7 +161,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPNumberField
+              <SPFxNumberField
                 Data={testData}
                 FieldName="DecimalNumber"
                 Label='Decimal Numbers (No Limit)'
@@ -176,7 +176,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><b>{testData.DecimalNumber}</b></td>
           </tr>
           <tr>
-            <td><SPNumberField
+            <td><SPFxNumberField
               Data={testData}
               FieldName="DecimalNumberTwo"
               Label='Decimal Numbers (Two)'
@@ -193,7 +193,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPCurrencyField
+              <SPFxCurrencyField
                 Data={testData}
                 FieldName="USDCurrency"
                 Label='USD Currency'
@@ -209,7 +209,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPPercentageField
+              <SPFxPercentageField
                 Data={testData}
                 FieldName="Percentage"
                 Label='Percentage'
@@ -226,7 +226,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPPercentageField
+              <SPFxPercentageField
                 Data={testData}
                 FieldName="PercentageDecimal"
                 Label='Percentage (2 Decimals)'
@@ -243,7 +243,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPToggle
+              <SPFxToggle
                 Data={testData}
                 FieldName="Toggle1"
                 Label='Toggle 1'
@@ -259,7 +259,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPToggle
+              <SPFxToggle
                 Data={testData}
                 FieldName="Toggle2"
                 Label='Toggle 2'
@@ -277,7 +277,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPCheckBox
+              <SPFxCheckBox
                 Data={testData}
                 FieldName="CheckBox"
                 Label='Checkbox'
@@ -293,7 +293,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPChoice
+              <SPFxChoice
                 Data={testData}
                 FieldName="RadioVertical"
                 Label='Radio Buttons (Vertical)'
@@ -310,12 +310,12 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPChoice
+              <SPFxChoice
                 Data={testData}
                 FieldName="RadioHorizontal"
                 Label='Radio Buttons (Horizontal)'
                 Choices={radioHorizontalChoices}
-                Layout={SPChoiceLayout.Horizontal}
+                Layout={SPFxChoiceLayout.Horizontal}
                 Required={testRequired}
                 Disabled={testDisabled}
                 ReadOnly={testReadOnly}
@@ -327,7 +327,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><b>{testData.RadioHorizontal}</b></td>
           </tr>
           <tr>
-            <td><SPDropdown
+            <td><SPFxDropdown
               Data={testData}
               FieldName="DropDownSingleString"
               Label='DropDown Single Select (String Keys)'
@@ -343,7 +343,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><b>{testData.DropDownSingleString}</b></td>
           </tr>
           <tr>
-            <td><SPDropdown
+            <td><SPFxDropdown
               Data={testData}
               FieldName="DropDownSingleNumber"
               Label='DropDown Single Select (Number Keys)'
@@ -359,7 +359,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><b>{testData.DropDownSingleNumber}</b></td>
           </tr>
           <tr>
-            <td><SPDropdown
+            <td><SPFxDropdown
               Data={testData}
               FieldName="DropDownMultipleString"
               Label='DropDown Multiple Select (String Keys)'
@@ -376,7 +376,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><b>{JSON.stringify(testData.DropDownMultipleString)}</b></td>
           </tr>
           <tr>
-            <td><SPDropdown
+            <td><SPFxDropdown
               Data={testData}
               FieldName="DropDownMultipleNumber"
               Label='DropDown Multiple Select (Number Keys)'
@@ -393,7 +393,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><b>{JSON.stringify(testData.DropDownMultipleNumber)}</b></td>
           </tr>
           <tr>
-            <td><SPDateTime
+            <td><SPFxDateTime
               Data={testData}
               FieldName="DatePicker"
               Label='Date Picker (ddd MMM DD YYYY)'
@@ -408,7 +408,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
             <td><b>{testData.DatePicker}</b></td>
           </tr>
           <tr>
-            <td><SPDateTime
+            <td><SPFxDateTime
               Data={testData}
               FieldName="DatePicker2"
               Label='Date Picker (YYYY-MM-DD)'
@@ -425,7 +425,7 @@ export default class Demo extends React.Component<IDemoProps, IDemoState> {
           </tr>
           <tr>
             <td>
-              <SPPeoplePicker
+              <SPFxPeoplePicker
                 Context={this.props.webpartContext}
                 Data={testData}
                 Label="People Picker (User)"

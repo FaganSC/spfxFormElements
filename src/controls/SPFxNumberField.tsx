@@ -7,7 +7,7 @@ import { NumberFormatValues, NumericFormat } from 'react-number-format';
 import { mergeStyles } from '@fluentui/react/lib/Styling';
 import { Icon } from '@fluentui/react/lib/Icon';
 
-export interface ISPNumberFieldProps {
+export interface ISPFxNumberFieldProps {
     Label?: string;
     Value?: string;
     Data?: any;
@@ -24,7 +24,7 @@ export interface ISPNumberFieldProps {
     Props?: ITextFieldProps;
 }
 
-export const SPNumberField: React.FunctionComponent<ISPNumberFieldProps> = React.forwardRef<HTMLElement, ISPNumberFieldProps>(
+export const SPFxNumberField: React.FunctionComponent<ISPFxNumberFieldProps> = React.forwardRef<HTMLElement, ISPFxNumberFieldProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [Value, setValue] = useState(_handleDataFormat);

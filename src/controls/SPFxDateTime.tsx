@@ -6,7 +6,7 @@ import { DayOfWeek } from '@fluentui/date-time-utilities/lib/dateValues/dateValu
 import { DatePicker, defaultDatePickerStrings, IDatePickerProps } from '@fluentui/react/lib/DatePicker';
 import { TextField } from '@fluentui/react/lib/TextField';
 import * as moment from 'moment';
-export interface ISPDateTimeProps {
+export interface ISPFxDateTimeProps {
     Label?: string;
     Value?: string;
     Data?: any;
@@ -27,7 +27,7 @@ export interface ISPDateTimeProps {
     Props?: IDatePickerProps;
 }
 
-export const SPDateTime: React.FunctionComponent<ISPDateTimeProps> = React.forwardRef<HTMLElement, ISPDateTimeProps>(
+export const SPFxDateTime: React.FunctionComponent<ISPFxDateTimeProps> = React.forwardRef<HTMLElement, ISPFxDateTimeProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [Value, setValue] = useState(_handleDataFormat);

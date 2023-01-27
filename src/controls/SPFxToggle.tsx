@@ -6,7 +6,7 @@ import { IToggleProps, Toggle } from '@fluentui/react/lib/Toggle';
 import { Icon } from '@fluentui/react/lib/Icon';
 import { mergeStyles } from '@uifabric/styling/lib/MergeStyles';
 
-export interface ISPToggleProps {
+export interface ISPFxToggleProps {
     Label: string;
     Data?: any;
     Value?: boolean;
@@ -24,7 +24,7 @@ export interface ISPToggleProps {
     Props?: IToggleProps;
 }
 
-export const SPToggle: React.FunctionComponent<ISPToggleProps> = React.forwardRef<HTMLElement, ISPToggleProps>(
+export const SPFxToggle: React.FunctionComponent<ISPFxToggleProps> = React.forwardRef<HTMLElement, ISPFxToggleProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [Value, setValue] = useState(_handleDataFormat);

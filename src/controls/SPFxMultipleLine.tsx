@@ -4,7 +4,7 @@ import styles from '../common/FormFields.module.scss';
 import { FieldActions, FieldLabel } from "../common";
 import { ITextFieldProps, TextField } from '@fluentui/react/lib/TextField';
 
-export interface ISPMultipleLineProps {
+export interface ISPFxMultipleLineProps {
     Label?: string;
     Value?: string;
     Data?: any;
@@ -22,7 +22,7 @@ export interface ISPMultipleLineProps {
     Props?: ITextFieldProps;
 }
 
-export const SPMultipleLine: React.FunctionComponent<ISPMultipleLineProps> = React.forwardRef<HTMLElement, ISPMultipleLineProps>(
+export const SPFxMultipleLine: React.FunctionComponent<ISPFxMultipleLineProps> = React.forwardRef<HTMLElement, ISPFxMultipleLineProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [Value, setValue] = useState(_handleDataFormat);

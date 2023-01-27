@@ -2,14 +2,14 @@ import * as React from 'react';
 import { useState, useEffect } from "react";
 import styles from '../common/FormFields.module.scss';
 import { FieldActions, FieldLabel } from "../common";
-import { ITextFieldProps, TextField } from '@fluentui/react/lib/TextField';
+import { Icon } from '@fluentui/react/lib/Icon';
+import { mergeStyles } from '@uifabric/styling/lib/MergeStyles';
+import { Checkbox, ICheckboxProps } from '@fluentui/react/lib/Checkbox';
 
-export interface ISPTextBoxProps {
-    Label?: string;
-    Value?: string;
+export interface ISPFxCheckBoxProps {
+    Label: string;
     Data?: any;
-    PlaceHolder?: string;
-    MaxLength?: number;
+    Value?: boolean;
     FieldName?: string;
     ClassName?: string | string[];
     ReadOnly?: boolean;
@@ -19,57 +19,54 @@ export interface ISPTextBoxProps {
     UseIcon?: boolean;
     TipTool?: string;
     onChange?: any;
-    Props?: ITextFieldProps;
+    Props?: ICheckboxProps;
 }
 
-export const SPTextBox: React.FunctionComponent<ISPTextBoxProps> = React.forwardRef<HTMLElement, ISPTextBoxProps>(
+export const SPFxCheckBox: React.FunctionComponent<ISPFxCheckBoxProps> = React.forwardRef<HTMLElement, ISPFxCheckBoxProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [Value, setValue] = useState(_handleDataFormat);
         useEffect(() => {
             setValue(_handleDataFormat);
         }, [_handleDataFormat]);
+        const readonlyIcon = Value ? "BoxCheckmarkSolid" : "Checkbox";
+        const iconClass = mergeStyles({
+            fontSize: 20
+        });
+        const iconCheckedClass = Value && mergeStyles({
+            color: "#0078d4"
+        });
 
-        const iconProps = props.ReadOnly ? { iconName: 'Lock' } : null;
-        
-        function _handleDataFormat(): string {
+        function _handleDataFormat(): boolean {
             if (_fieldActions.isControlled()) {
                 if (typeof props.Data === 'object') {
                     return props.Data !== undefined
                         && props.Data !== null
                         && Object.keys(props.Data).length > 0
                         && props.Data[props.FieldName] !== null
-                        ? props.Data[props.FieldName] : null;
+                        ? props.Data[props.FieldName] : false;
                 } else {
                     return props.Value !== undefined
                         && props.Value !== null
-                        ? props.Value : null;
+                        ? props.Value : false;
                 }
             } else {
                 return Value;
             }
         }
 
-        function _handleOnChange(event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, newTextValue?: string): void {
-            const FieldsValue: string = (newTextValue ? newTextValue : null);
+        function _handleOnChange(event: React.FormEvent<HTMLElement | HTMLInputElement>, checked?: boolean): void {
+            const FieldsValue: boolean = (checked ? checked : false);
             const dataObj: any = props.Data;
-            let dataValue: string = props.Value;
+            let dataValue: boolean = props.Value;
             if (typeof dataObj === 'object' && dataObj !== null && dataObj !== undefined) {
-                if (FieldsValue === null) {
-                    dataObj[props.FieldName] = null;
-                } else {
-                    dataObj[props.FieldName] = FieldsValue;
-                }
+                dataObj[props.FieldName] = FieldsValue;
                 setValue(FieldsValue);
                 if (props.onChange !== undefined) {
                     props.onChange(event, dataObj, props.FieldName);
                 }
             } else {
-                if (newTextValue.length === 0) {
-                    dataValue = null;
-                } else {
-                    dataValue = newTextValue;
-                }
+                dataValue = FieldsValue;
                 setValue(dataValue);
                 if (props.onChange !== undefined) {
                     props.onChange(event, dataValue, props.FieldName);
@@ -84,19 +81,20 @@ export const SPTextBox: React.FunctionComponent<ISPTextBoxProps> = React.forward
                     Required={_fieldActions.isRequired()}
                     UseIcon={_fieldActions.hasIcon()}
                     TipTool={_fieldActions.hasTipTool()}
-                    IconName="TextField"
+                    IconName="CheckboxComposite"
                 />
-                <TextField
-                    readOnly={_fieldActions.isReadOnly()}
-                    disabled={_fieldActions.isDisabled()}
-                    className={_fieldActions.getClassNames()}
-                    value={Value}
-                    iconProps={iconProps}
-                    errorMessage={_fieldActions.getErrorMessage()}
-                    placeholder={_fieldActions.getPlaceholderText()}
-                    autoComplete="off"
-                    onChange={(event, value) => _handleOnChange(event, value)}
-                    {...props.Props} />
+                {!(_fieldActions.isReadOnly()) ?
+                    <Checkbox
+                        checked={Value}
+                        className={_fieldActions.getClassNames()}
+                        disabled={_fieldActions.isDisabled()}
+                        onChange={(event, checked) => _handleOnChange(event, checked)}
+                    /> :
+                    <div className={styles.readOnly}>
+                        <Icon className={mergeStyles(iconClass, iconCheckedClass, styles.fieldIcon)} iconName={readonlyIcon} />
+                        <Icon className={mergeStyles(styles.lockIcon, styles.fieldIcon)} iconName={"Lock"} />
+                    </div>
+                }
             </div>
         );
     }

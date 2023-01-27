@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import styles from '../common/FormFields.module.scss';
 import { FieldActions, FieldLabel } from "../common";
 import { ITextFieldProps } from '@fluentui/react/lib/TextField';
-import { NumberFormatValues, PatternFormat } from 'react-number-format';
+import { NumberFormatValues, NumericFormat } from 'react-number-format';
 import { mergeStyles } from '@fluentui/react/lib/Styling';
 import { Icon } from '@fluentui/react/lib/Icon';
 
-export interface ISPPhoneNumberProps {
+export interface ISPFxPercentageFieldProps {
     Label?: string;
     Value?: string;
     Data?: any;
@@ -24,12 +24,12 @@ export interface ISPPhoneNumberProps {
     Props?: ITextFieldProps;
 }
 
-export const SPPhoneNumber: React.FunctionComponent<ISPPhoneNumberProps> = React.forwardRef<HTMLElement, ISPPhoneNumberProps>(
+export const SPFxPercentageField: React.FunctionComponent<ISPFxPercentageFieldProps> = React.forwardRef<HTMLElement, ISPFxPercentageFieldProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [Value, setValue] = useState(_handleDataFormat);
         useEffect(() => {
-            if ((Value ? Value.formattedValue : null) !== (_handleDataFormat() !== null ? _handleDataFormat().formattedValue : null)) {
+            if ((Value ? Value.floatValue : null) !== (_handleDataFormat() !== null ? _handleDataFormat().floatValue : null)) {
                 console.log(Value);
                 console.log(props.Data);
                 const temp: NumberFormatValues = _handleDataFormat();
@@ -46,9 +46,9 @@ export const SPPhoneNumber: React.FunctionComponent<ISPPhoneNumberProps> = React
                 && Object.keys(props.Data).length > 0
                 && props.Data[props.FieldName] !== null
                 ? {
-                    formattedValue: props.Data[props.FieldName],
-                    value: props.Data[props.FieldName],
-                    floatValue: Number(props.Data[props.FieldName])
+                    formattedValue: (parseFloat(props.Data[props.FieldName]) * 100).toFixed(_fieldActions.getDecimalScale()) + " %",
+                    value: (parseFloat(props.Data[props.FieldName]) * 100).toFixed(_fieldActions.getDecimalScale()),
+                    floatValue: parseFloat(props.Data[props.FieldName]) * 100
                 }
                 : {
                     formattedValue: null,
@@ -61,16 +61,11 @@ export const SPPhoneNumber: React.FunctionComponent<ISPPhoneNumberProps> = React
             const FieldsValue: NumberFormatValues = (newTextValue ? newTextValue : null);
             const dataObj: any = props.Data;
             if (typeof dataObj === 'object' && dataObj !== null && dataObj !== undefined) {
-                if (FieldsValue.formattedValue.length === 0 || FieldsValue.formattedValue === "(___) ___-____") {
+                if (FieldsValue === null) {
                     dataObj[props.FieldName] = null;
                 } else {
-                    dataObj[props.FieldName] = FieldsValue.formattedValue;
+                    dataObj[props.FieldName] = parseFloat(FieldsValue.value) / 100;
                 }
-               /* if (FieldsValue === null) {
-                    dataObj[props.FieldName] = null;
-                } else {
-                    dataObj[props.FieldName] = FieldsValue.formattedValue;
-                }*/
                 setValue(FieldsValue);
                 if (props.onChange !== undefined) {
                     props.onChange(undefined, dataObj, props.FieldName);
@@ -78,7 +73,7 @@ export const SPPhoneNumber: React.FunctionComponent<ISPPhoneNumberProps> = React
             } else {
                 setValue(newTextValue);
                 if (props.onChange !== undefined) {
-                    props.onChange(undefined, newTextValue.formattedValue, props.FieldName);
+                    props.onChange(undefined, newTextValue.floatValue, props.FieldName);
                 }
             }
 
@@ -90,13 +85,12 @@ export const SPPhoneNumber: React.FunctionComponent<ISPPhoneNumberProps> = React
                     Required={_fieldActions.isRequired()}
                     UseIcon={_fieldActions.hasIcon()}
                     TipTool={_fieldActions.hasTipTool()}
-                    IconName="DeclineCall"
+                    IconName="CalculatorPercentage"
                 />
                 <div className={styles.spfxTextField}>
                     <div className={styles.wrapper}>
                         <div className={styles.fieldGroup}>
-                            <PatternFormat
-                                format={'(###) ###-####'}
+                            <NumericFormat
                                 className={styles.field}
                                 value={Value !== undefined && Value !== null && Value.formattedValue !== null ? Value.formattedValue : ""}
                                 decimalScale={props.DecimalScale}
@@ -105,6 +99,9 @@ export const SPPhoneNumber: React.FunctionComponent<ISPPhoneNumberProps> = React
                                 disabled={_fieldActions.isDisabled()}
                                 iconProps={iconProps}
                             />
+                            <div className={styles.prefix}>
+                                <span>%</span>
+                            </div>
                             {_fieldActions.isReadOnly() && <Icon className={mergeStyles(styles.lockIcon, styles.fieldIcon)} iconName={"Lock"} />}
                         </div>
                     </div>

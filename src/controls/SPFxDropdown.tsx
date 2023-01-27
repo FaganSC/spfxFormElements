@@ -5,7 +5,7 @@ import { FieldActions, FieldLabel } from "../common";
 import { Dropdown, IDropdownOption, IDropdownProps } from '@fluentui/react/lib/Dropdown';
 import { TextField } from '@fluentui/react/lib/TextField';
 
-export interface ISPDropdownProps {
+export interface ISPFxDropdownProps {
     Label: string;
     Data?: any;
     Value?: string | number;
@@ -23,7 +23,7 @@ export interface ISPDropdownProps {
     Props?: IDropdownProps;
 }
 
-export const SPDropdown: React.FunctionComponent<ISPDropdownProps> = React.forwardRef<HTMLElement, ISPDropdownProps>(
+export const SPFxDropdown: React.FunctionComponent<ISPFxDropdownProps> = React.forwardRef<HTMLElement, ISPFxDropdownProps>(
     (props, forwardedRef) => {
         const _fieldActions: FieldActions = new FieldActions(props);
         const [selectedKeys, setSelectedKeys] = useState(_handleDataFormat);
