@@ -45,7 +45,7 @@ This package was developed to help streamline SharePoint Framework development w
 | 0.12.0  | Jan 4, 2023  | Added SPPhoneNumber Control                                     |
 | 0.13.0  | Jan 16, 2023 | Updated dependencies Versions                                   |
 | 0.14.0  | Jan 24, 2023 | Added SPPeoplePicker Control<br />Updated dependencies Versions |
-
+| 0.15.0  | Jan 30, 2023 | Changed Prefic from SP to SPFx                                  |
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
