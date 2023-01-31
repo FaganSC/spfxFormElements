@@ -10,7 +10,8 @@ export interface ISPFxDropdownProps {
     Data?: any;
     Value?: string | number;
     FieldName?: string;
-    Options: IDropdownOption[];
+    Options?: IDropdownOption[];
+    ListId?: string;
     MultiSelect?: boolean;
     ClassName?: string | string[];
     ReadOnly?: boolean;
