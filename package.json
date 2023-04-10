@@ -41,7 +41,7 @@
     "ajv": "^8.12.0",
     "eslint-plugin-react-hooks": "4.6.0",
     "gulp": "4.0.2",
-    "typescript": "4.9.4"
+    "typescript": "5.0.4"
   },
   "author": "Shawn Fagan",
   "repository": {
